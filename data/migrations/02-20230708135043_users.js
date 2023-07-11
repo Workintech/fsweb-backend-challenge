@@ -18,12 +18,6 @@ exports.up = function(knex) {
         .inTable('roleNames')
         .onUpdate('RESTRICT')
         .onDelete('RESTRICT')
-    users.integer('tweet_id')
-        .unsigned()
-        .references('tweet_id')
-        .inTable('tweets')
-        .onUpdate('RESTRICT')
-        .onDelete('RESTRICT')
   })
 };
 

@@ -6,6 +6,13 @@ exports.up = function(knex) {
   return knex.schema.createTable('tweets',tweets=>{
     tweets.increments('tweet_id')
     tweets.string('tweet')
+    tweets.integer('user_id')
+          .unsigned()
+          .notNullable()
+          .references('user_id')
+          .inTable('users')
+          .onUpdate('RESTRICT')
+          .onDelete('RESTRICT')
   })
 };
 

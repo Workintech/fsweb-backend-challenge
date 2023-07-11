@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const authRouter = require('./auth/auth-router')
+const userRouter = require('./user/users-routers')
 
 
 //Middlewares
@@ -24,6 +25,7 @@ server.use(cors(corsOptions))
 //   res.json('smoke test successfull')
 // })
 server.use('/api/auth',authRouter)
+server.use('/api/users',userRouter)
 
 
 //4. error middleware
