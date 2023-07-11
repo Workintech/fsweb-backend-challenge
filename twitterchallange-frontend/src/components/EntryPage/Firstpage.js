@@ -9,10 +9,10 @@ function Firstpage() {
   return (
       <nav id="firstPageMainContainer">
          <h1>Hoşgeldiniz</h1>
-          <button onClick={()=>{
+          <button data-cy="entryPageGirisBtn" onClick={()=>{
         setEntryPageNum(1)
       }}>Giriş</button>
-          <button onClick={()=>{
+          <button data-cy="entryPageKayitBtn" onClick={()=>{
         setEntryPageNum(2)
       }}>Kayıt</button>
       </nav>  

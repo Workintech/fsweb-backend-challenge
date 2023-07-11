@@ -44,6 +44,7 @@ const registerHandleSubmit=(data)=>{
         <h2>Kayit</h2>
         <label htmlFor="title "> İsim</label>
         <input
+        data-cy="registerDataName"
         type="text"
         placeholder="İsim"
         {...register("name", { required: "Lütfen isminizi giriniz" })}
@@ -51,6 +52,7 @@ const registerHandleSubmit=(data)=>{
         {errors?.name && <p id="formError">{errors.name.message}</p>}
         <label htmlFor="title "> Kullanıcı Adı</label>
         <input
+        data-cy="registerUserName"
         type="text"
         placeholder="Kullanıcı adı"
         {...register("userName", { required: "Lütfen kullanıcı adınızı giriniz" })}
@@ -58,20 +60,22 @@ const registerHandleSubmit=(data)=>{
         {errors?.userName && <p id="formError">{errors.userName.message}</p>}
         <label htmlFor="title "> E-mail</label>
         <input
+        data-cy="registerUserEmail"
         type="text"
         placeholder="E-mail"
         {...register("userEmail", { required: "Lütfen e-mail adresinizi giriniz" })}
         />
         {errors?.userEmail && <p id="formError">{errors.userEmail.message}</p>}
-        <label htmlFor="title "> Password</label>
+        <label htmlFor="title "> Şifre </label>
         <input
+        data-cy="registerPassword"
         type="text"
         placeholder="Password"
-        {...register("password", { required: "Please enter password" })}
+        {...register("password", { required: "Lütfen şifre giriniz"})}
         />
         {errors?.password && <p id="formError">{errors.password.message}</p>}
         
-        <button type="submit">Kayıt</button>
+        <button data-cy="registerSbmtBtn" type="submit">Kayıt</button>
         {registerErrorReponse&&<p id="axiosError">{registerErrorReponse}</p>}
       </form>
     </section>
