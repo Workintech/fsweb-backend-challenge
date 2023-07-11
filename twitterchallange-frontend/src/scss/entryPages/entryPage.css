@@ -4,7 +4,7 @@
   height: 96vh; }
   #entryPageMainContainer #entryPageMainLeftContainer {
     font-family: "Anton", cursive;
-    color: white;
+    color: #FFFFFF;
     font-size: 10rem;
     background-color: #252128;
     height: 100%;
@@ -18,14 +18,19 @@
     align-items: center;
     justify-content: center; }
     #entryPageMainContainer #entryPageMainRightContainer #firstPageMainContainer {
-      width: 20rem;
+      width: 30rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 5rem; }
+      #entryPageMainContainer #entryPageMainRightContainer #firstPageMainContainer h1 {
+        font-family: "Anton", cursive;
+        color: #252128;
+        font-size: 6rem; }
       #entryPageMainContainer #entryPageMainRightContainer #firstPageMainContainer button {
         height: 5rem;
-        width: 100%;
-        background-color: white;
+        width: 20rem;
+        background-color: #FFFFFF;
         font-size: 2rem;
         font-family: "Plus Jakarta Sans", cursive;
         color: #AEBCCF;
@@ -34,7 +39,7 @@
         text-decoration: none;
         cursor: pointer; }
         #entryPageMainContainer #entryPageMainRightContainer #firstPageMainContainer button:hover {
-          background-color: black;
+          background-color: #252128;
           transition: 1s; }
     #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer {
       height: 80vh;
@@ -58,8 +63,8 @@
         gap: 1rem; }
         #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm button {
           height: 5rem;
-          width: 100%;
-          background-color: white;
+          width: 20rem;
+          background-color: #FFFFFF;
           font-size: 2rem;
           font-family: "Plus Jakarta Sans", cursive;
           color: #AEBCCF;
@@ -69,7 +74,7 @@
           cursor: pointer;
           margin-top: 1rem; }
           #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm button:hover {
-            background-color: black;
+            background-color: #252128;
             transition: 1s; }
         #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm label {
           width: 100%;
@@ -83,13 +88,19 @@
         #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm input {
           height: 3rem;
           width: 100%;
-          background-color: white;
+          background-color: #FFFFFF;
           font-size: 1rem;
           font-family: "Plus Jakarta Sans", cursive;
           color: #AEBCCF;
-          border: 0.1rem solid #AEBCCF; }
-        #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm p {
+          border: 0.1rem solid #AEBCCF;
+          padding-left: 6px; }
+        #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm #formError {
+          font-family: "Plus Jakarta Sans", cursive;
           color: red; }
+        #entryPageMainContainer #entryPageMainRightContainer #firstPageLoginMainContainer #entryPageForm #axiosError {
+          font-family: "Plus Jakarta Sans", cursive;
+          color: red;
+          text-align: center; }
 
 #entryPageFooter {
   width: 100%;
@@ -109,4 +120,4 @@
       color: #AEBCCF;
       transition: 1s; }
 
-/*# sourceMappingURL=EntryPage.css.map */
+/*# sourceMappingURL=entryPage.css.map */

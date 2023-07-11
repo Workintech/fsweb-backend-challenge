@@ -1,67 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 
+import { EntryPageNavContext } from '../../context/EntryPageNavContext';
+
 function RegisterUser() {
-  const navigate =useNavigate();
+  const {setEntryPageNum} = useContext(EntryPageNavContext)
+  const [registerErrorReponse,setRegisterErrorReponse]=useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({mode:'onChange'
 })
-const loginHandleSubmit=(data)=>{
+const registerHandleSubmit=(data)=>{
   axios
   .post(
-    "http://localhost:9000/api/auth/login",data,{withCredentials: true, credentials: 'include'}
-
+    "http://localhost:9000/api/auth/register",data
   )
   .then((res) => {
     console.log("Yeni urun kayıt res > ", res.data);  
-    navigate("/peoplelist");
+    setEntryPageNum(1)
   })
   .catch((err)=>{
-    navigate("/");
-    alert("eksik bilgi")
+    setRegisterErrorReponse(err.response.data.message)
   })
 }
+  useEffect(()=>{
+    setTimeout(() => {
+      setRegisterErrorReponse("")
+    }, 2000);
+  },[registerErrorReponse])
+
+
   return (
     <section id="firstPageLoginMainContainer">
       <button id="loginExitIcon" onClick={()=>{
-        navigate('/')
+        setEntryPageNum(0)
       }}><i className="fa-sharp fa-regular fa-circle-xmark fa-4x"></i></button>
-      <form id='entryPageForm' onSubmit={handleSubmit(loginHandleSubmit)} >
+      
+      <form id='entryPageForm' onSubmit={handleSubmit(registerHandleSubmit)} >
+        <h2>Kayit</h2>
         <label htmlFor="title "> İsim</label>
         <input
         type="text"
         placeholder="İsim"
         {...register("name", { required: "Lütfen isminizi giriniz" })}
         />
-        {errors?.name && <p>{errors.name.message}</p>}
+        {errors?.name && <p id="formError">{errors.name.message}</p>}
         <label htmlFor="title "> Kullanıcı Adı</label>
         <input
         type="text"
         placeholder="Kullanıcı adı"
-        {...register("username", { required: "Lütfen kullanıcı adınızı giriniz" })}
+        {...register("userName", { required: "Lütfen kullanıcı adınızı giriniz" })}
         />
-        {errors?.username && <p>{errors.username.message}</p>}
+        {errors?.userName && <p id="formError">{errors.userName.message}</p>}
         <label htmlFor="title "> E-mail</label>
         <input
         type="text"
         placeholder="E-mail"
-        {...register("email", { required: "Lütfen e-mail adresinizi giriniz" })}
+        {...register("userEmail", { required: "Lütfen e-mail adresinizi giriniz" })}
         />
-        {errors?.email && <p>{errors.email.message}</p>}
+        {errors?.userEmail && <p id="formError">{errors.userEmail.message}</p>}
         <label htmlFor="title "> Password</label>
         <input
         type="text"
         placeholder="Password"
         {...register("password", { required: "Please enter password" })}
         />
-        {errors?.password && <p>{errors.password.message}</p>}
+        {errors?.password && <p id="formError">{errors.password.message}</p>}
         
         <button type="submit">Kayıt</button>
+        {registerErrorReponse&&<p id="axiosError">{registerErrorReponse}</p>}
       </form>
     </section>
   )

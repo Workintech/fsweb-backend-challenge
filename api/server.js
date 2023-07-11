@@ -9,8 +9,14 @@ const authRouter = require('./auth/auth-router')
 
 //Middlewares
 server.use(helmet());
-server.use(cors());
 server.use(express.json());
+
+var corsOptions = {
+  origin:'http://localhost:3000', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+server.use(cors(corsOptions))
 
 //Routers
 //Smoke test

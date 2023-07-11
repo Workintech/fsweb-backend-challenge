@@ -1,28 +1,31 @@
-import React from 'react'
-import { Route,Routes } from 'react-router-dom';
+import React,{useContext} from 'react'
+import { Outlet, Route,Routes } from 'react-router-dom';
 
-import Firstpage from '../components/Firstpage';
-import Login from '../components/Login';
-import RegisterUser from '../components/Register';
+
+import { EntryPageNavContext } from '../context/EntryPageNavContext';
+import Firstpage from '../components/EntryPage/Firstpage';
+import Login from '../components/EntryPage/Login';
+import RegisterUser from '../components/EntryPage/Register';
 
 
 function EntryPage() {
+
+  const {entryPageNum} = useContext(EntryPageNavContext)
+
+  console.log("entryPageNum",entryPageNum)
+
   return (
     <>
       <section id="entryPageMainContainer"> 
         <section id='entryPageMainLeftContainer'>Twitter</section>
         <section id='entryPageMainRightContainer'>
-          <Routes>
-              <Route path='/' element={ <Firstpage/>}/>   
-              <Route path='/login' element={ <Login/>}/>  
-              <Route path='/register' element={ <RegisterUser/>}/>       
-          </Routes>
+          {entryPageNum===1?<Login/>:(entryPageNum===2?<RegisterUser/>:<Firstpage/>)}
         </section>
       </section>
       <footer id='entryPageFooter'> 
         <nav>
-          <a id='footerLink' href='https://serkan-toraman.vercel.app/'>Yazılımcı ile iletişime geç </a> 
-          <a id='footerLink' href='https://serkan-toraman.vercel.app/'>Yazılımcı Websitesi </a> 
+          <a id='footerLink' href="mailto:serkantrmn85@gmail.com">Yazılımcı ile iletişime geç </a> 
+          <a id='footerLink' href='https://serkan-toraman.vercel.app/' target="_blank" rel="noopener noreferrer">Yazılımcı Websitesi </a> 
         </nav>
       </footer>
     </>

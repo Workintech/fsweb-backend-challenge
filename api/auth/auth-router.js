@@ -37,7 +37,7 @@ router.post('/login',mwLoginCheckPayload,mwLoginUser,async (req,res,next)=>{
     }
     const token = tokenHelper.generateToken(tokenPayload);
     res.json({
-      message:`Welcome, ${req.userData.name}`,
+      message:`Merhaba, ${req.userData.name}`,
       token: token
     });
     
