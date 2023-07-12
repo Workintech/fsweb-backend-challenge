@@ -25,6 +25,15 @@ router.get('/tweets', async (req,res,next)=>{
   }
 })
 
+router.get('/tweetreplies', async (req,res,next)=>{
+  try {
+    const tweetReplies = await userModel.getTweetRepliesByID();
+    res.json(tweetReplies);
+  } catch (error) {
+    next()
+  }
+})
+
 //4 Errors -- Server has an errorfunc for all
 
 //5 Exports
