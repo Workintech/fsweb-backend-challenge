@@ -36,9 +36,17 @@ async function getTweetsByUser(){
         tweet:item.tweet, 
         tweetReplies:[]    
       }
-      let tweetReplies = allTweetReplies.filter(filterItem=>filterItem.tweet_id === item.tweet_id);
-      tweetModel.tweetReplies = tweetReplies;
-
+      let tweetReplies = allTweetReplies.filter(filterItem=>filterItem.tweet_id === item.tweet_id);  
+      tweetModel.tweetReplies = tweetReplies.reduce((acc,item)=>{
+            let a= {
+            user_id: item.user_id,
+            userName: item.userName,
+            tweetReply_id:item.tweetReply_id, 
+            reply:item.reply, 
+            }
+            acc.push(a);
+            return acc;
+          },[])
 
       if(!registeredUser){
             const newUser ={
