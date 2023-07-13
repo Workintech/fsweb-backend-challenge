@@ -24,7 +24,7 @@ const loginHandleSubmit = (data) => {
 }
 useEffect(()=>{
   if(isLoggedIn){
-    navigate('/mainpage')
+    navigate('/home')
   }
 },[isLoggedIn])
 

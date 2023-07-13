@@ -1,0 +1,110 @@
+@import 'variables';
+
+@mixin frontPagebuttons{
+  height:4rem;
+  width:15rem;
+  font-size: 1.5rem;
+  font-family: $lineText;
+  border-radius: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    transition: 1s;
+  }
+}
+@mixin loginFormInputs{
+  height:3rem;
+  width:40rem;
+  background-color:$lightBgColor;
+  font-size: 1rem;
+  font-family: $lineText;
+  color:$bordercolors;
+  border :0.1rem solid $bordercolors;
+  border-radius: 1rem;
+  padding-left: 3rem;
+}
+
+  #homePageContainer{
+    height:100vh;
+    display: flex;
+    flex-direction:row;
+    #homePageleftNavBar{
+      width:20rem;
+      height:100%;
+      background-color:$darkHeaders;
+      display:flex;
+      flex-direction: column;
+      h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $headersText;
+        color:$darkBgColor;
+        font-size: 2rem;
+        flex-grow:1;
+
+      }
+      #homePageleftNavBarMainBtns{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        gap:2rem;
+        flex-grow:2;
+        margin-top:2rem;
+      }
+      #homePageleftNavBarPersonalBtns{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        gap:2rem;
+        flex-grow:0.2;
+      }
+      #homePageleftNavBarBtn{
+        @include frontPagebuttons;
+        background-color:$lightBgColor;
+        font-family: $lineText;
+        color:$bordercolors;
+        border :0.1rem solid $bordercolors;
+        &:hover{
+        background-color:$darkBgColor;
+        }
+       }
+      #logoutBtn{
+        @include frontPagebuttons;
+        background-color:$logoutBgColor;
+        font-family: $lineText;
+        color:$lightTextColor;
+        border :0.1rem solid $logoutBorderColor;
+        &:hover{
+        background-color:$logoutHoverBgColor;
+      }
+     }
+    }
+    #homePageMainSection{
+      width:80vw;
+      height:100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      #homePageMainSectionInputSection{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        #homePageMainSectionInputWrapper{
+          position: relative;
+          #homePageMainSectionInput{
+            @include loginFormInputs;
+          }
+         #homePageMainSectionInputWrapperFaFa{
+          position: absolute;
+          top:1.5rem;
+          left:1rem;
+          color:$bordercolors;
+        }
+      }
+      
+    }
+  }
+}
+  

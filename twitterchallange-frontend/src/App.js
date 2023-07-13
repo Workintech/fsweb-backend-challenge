@@ -4,10 +4,12 @@ import React from 'react';
 
 
 //Component Imports
-import MainPage from './Pages/MainPage';
+import HomePage from './Pages/HomePage';
 import EntryPage from './Pages/EntryPage';
 import PrivateRoute from './context/PrivateRoute'
 import EntryPageProvider from './context/EntryPageNavContext';
+import HomePageFirstPage from './components/Home Page/HomePageFirstPage';
+import HomePageSearchPage from './components/Home Page/HomePageSearchPage';
 
 // import Firstpage from './components/EntryPage/Firstpage';
 // import Login from './components/EntryPage/Login';
@@ -29,22 +31,22 @@ function App() {
   return (
     <>
       <Routes>
-          <Route 
-            path='/' 
-            element={
+          <Route path='/' element={
               <EntryPageProvider>
                  <EntryPage/>
               </EntryPageProvider>  
-            }
-          />
-          <Route 
-            path="/mainpage" 
+            }/>
+          
+          <Route path="/home" 
             element={
               <PrivateRoute>
-                  <MainPage/>
+                  <HomePage/>
               </PrivateRoute>
             }
-          />
+          >
+           <Route path="a" element={<HomePageFirstPage/>}/>
+           <Route path="b" element={<HomePageSearchPage/>}/>
+          </Route>
      </Routes>
     </>
   )

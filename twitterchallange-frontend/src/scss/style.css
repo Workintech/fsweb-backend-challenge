@@ -168,7 +168,96 @@ table {
       color: #AEBCCF;
       transition: 1s; }
 
-#mainPageContainer {
-  background-color: darkcyan; }
+#homePageContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: row; }
+  #homePageContainer #homePageleftNavBar {
+    width: 20rem;
+    height: 100%;
+    background-color: #AEBCCF;
+    display: flex;
+    flex-direction: column; }
+    #homePageContainer #homePageleftNavBar h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Anton", cursive;
+      color: #252128;
+      font-size: 2rem;
+      flex-grow: 1; }
+    #homePageContainer #homePageleftNavBar #homePageleftNavBarMainBtns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      flex-grow: 2;
+      margin-top: 2rem; }
+    #homePageContainer #homePageleftNavBar #homePageleftNavBarPersonalBtns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      flex-grow: 0.2; }
+    #homePageContainer #homePageleftNavBar #homePageleftNavBarBtn {
+      height: 4rem;
+      width: 15rem;
+      font-size: 1.5rem;
+      font-family: "Plus Jakarta Sans", cursive;
+      border-radius: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: #FFFFFF;
+      font-family: "Plus Jakarta Sans", cursive;
+      color: #AEBCCF;
+      border: 0.1rem solid #AEBCCF; }
+      #homePageContainer #homePageleftNavBar #homePageleftNavBarBtn:hover {
+        transition: 1s; }
+      #homePageContainer #homePageleftNavBar #homePageleftNavBarBtn:hover {
+        background-color: #252128; }
+    #homePageContainer #homePageleftNavBar #logoutBtn {
+      height: 4rem;
+      width: 15rem;
+      font-size: 1.5rem;
+      font-family: "Plus Jakarta Sans", cursive;
+      border-radius: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: #b91c1c;
+      font-family: "Plus Jakarta Sans", cursive;
+      color: #FFFFFF;
+      border: 0.1rem solid #991b1b; }
+      #homePageContainer #homePageleftNavBar #logoutBtn:hover {
+        transition: 1s; }
+      #homePageContainer #homePageleftNavBar #logoutBtn:hover {
+        background-color: #ef4444; }
+  #homePageContainer #homePageMainSection {
+    width: 80vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem; }
+    #homePageContainer #homePageMainSection #homePageMainSectionInputSection {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem; }
+      #homePageContainer #homePageMainSection #homePageMainSectionInputSection #homePageMainSectionInputWrapper {
+        position: relative; }
+        #homePageContainer #homePageMainSection #homePageMainSectionInputSection #homePageMainSectionInputWrapper #homePageMainSectionInput {
+          height: 3rem;
+          width: 40rem;
+          background-color: #FFFFFF;
+          font-size: 1rem;
+          font-family: "Plus Jakarta Sans", cursive;
+          color: #AEBCCF;
+          border: 0.1rem solid #AEBCCF;
+          border-radius: 1rem;
+          padding-left: 3rem; }
+        #homePageContainer #homePageMainSection #homePageMainSectionInputSection #homePageMainSectionInputWrapper #homePageMainSectionInputWrapperFaFa {
+          position: absolute;
+          top: 1.5rem;
+          left: 1rem;
+          color: #AEBCCF; }
 
 /*# sourceMappingURL=style.css.map */

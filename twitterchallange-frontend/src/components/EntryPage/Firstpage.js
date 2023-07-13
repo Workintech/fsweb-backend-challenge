@@ -20,14 +20,3 @@ function Firstpage() {
 }
 
 export default Firstpage
-
-
-{/* <nav id="firstPageMainContainer">
-         <h1>Hoşgeldiniz</h1>
-          <button onClick={()=>{
-            navigate('/login')
-          }}>Giriş</button>
-          <button onClick={()=>{
-          navigate('/register')
-          }}>Kayıt</button>
-      </nav>   */}

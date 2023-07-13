@@ -11,6 +11,7 @@ exports.seed = async function(knex) {
     {reply:"Reply Deneme 2.1",tweet_id:2,user_id:3},
     {reply:"Reply Deneme 2.2",tweet_id:2,user_id:2},
     {reply:"Reply Deneme 2.3",tweet_id:2,user_id:1},
+    {reply:"Reply Deneme 2.3.1",tweet_id:2,user_id:1},
   ]);
   
 };

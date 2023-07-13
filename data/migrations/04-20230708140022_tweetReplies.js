@@ -5,6 +5,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('tweetReplies',tweetReplies=>{
     tweetReplies.increments('tweetReply_id')
+    // tweetReplies.integer('upperTweetReply_id').unsigned()
     tweetReplies.string('reply',255).notNullable()
     tweetReplies.integer('tweet_id')
                 .unsigned()
