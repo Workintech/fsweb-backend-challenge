@@ -1,5 +1,4 @@
 import React,{useContext} from 'react'
-import { Outlet, Route,Routes } from 'react-router-dom';
 
 
 import { EntryPageNavContext } from '../context/EntryPageNavContext';

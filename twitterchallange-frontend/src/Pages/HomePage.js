@@ -41,7 +41,9 @@ function HomePage() {
                   </input>
                 </div>
               </section>
-              <Outlet/>
+              <section id="homePageMainSectionDataSection">
+                <Outlet/>
+              </section>
           </section>
       </section>
   )

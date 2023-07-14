@@ -29,7 +29,7 @@ function App() {
           // </Routes>
 
   return (
-    <>
+    <div id='appContainer'>
       <Routes>
           <Route path='/' element={
               <EntryPageProvider>
@@ -48,7 +48,7 @@ function App() {
            <Route path="b" element={<HomePageSearchPage/>}/>
           </Route>
      </Routes>
-    </>
+    </div>
   )
 }
 

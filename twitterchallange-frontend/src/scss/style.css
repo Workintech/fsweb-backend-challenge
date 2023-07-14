@@ -41,6 +41,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+#appContainer {
+  background-color: #f8fafc; }
+
 #entryPageMainContainer {
   display: flex;
   flex-direction: row;
@@ -170,12 +173,15 @@ table {
 
 #homePageContainer {
   height: 100vh;
+  width: 1830px;
+  margin: auto;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  background-color: #FFFFFF; }
   #homePageContainer #homePageleftNavBar {
-    width: 20rem;
+    width: 30rem;
     height: 100%;
-    background-color: #AEBCCF;
+    background-color: #e2e8f0;
     display: flex;
     flex-direction: column; }
     #homePageContainer #homePageleftNavBar h2 {
@@ -223,19 +229,21 @@ table {
       border-radius: 1rem;
       text-decoration: none;
       cursor: pointer;
-      background-color: #b91c1c;
+      background-color: #fca5a5;
       font-family: "Plus Jakarta Sans", cursive;
-      color: #FFFFFF;
-      border: 0.1rem solid #991b1b; }
+      color: #1F2937;
+      border: 0.1rem solid #f87171; }
       #homePageContainer #homePageleftNavBar #logoutBtn:hover {
         transition: 1s; }
       #homePageContainer #homePageleftNavBar #logoutBtn:hover {
-        background-color: #ef4444; }
+        color: #FFFFFF;
+        background-color: #f87171; }
   #homePageContainer #homePageMainSection {
-    width: 80vw;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 1rem; }
     #homePageContainer #homePageMainSection #homePageMainSectionInputSection {
       display: flex;
@@ -259,5 +267,159 @@ table {
           top: 1.5rem;
           left: 1rem;
           color: #AEBCCF; }
+    #homePageContainer #homePageMainSection #homePageMainSectionDataSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer {
+        width: 40rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; }
+        #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer {
+          width: 100%;
+          border: 0.1rem solid #AEBCCF;
+          border-radius: 1rem;
+          display: flex;
+          flex-direction: row;
+          padding: 0.5rem; }
+          #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer:hover {
+            background-color: #f8fafc;
+            transition: 0.5s; }
+          #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetCardImg {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem; }
+          #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem; }
+            #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop {
+              display: flex;
+              flex-direction: row;
+              align-items: center; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopName {
+                flex-grow: 0;
+                font-family: "Plus Jakarta Sans", cursive;
+                color: #252128;
+                font-size: 1.1rem;
+                font-weight: 700; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopUserName {
+                flex-grow: 0;
+                font-family: "Plus Jakarta Sans", cursive;
+                color: #252128;
+                font-size: 1rem;
+                padding-left: 0.3rem; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
+                flex-grow: 1;
+                display: flex;
+                justify-content: end; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon {
+                  position: relative;
+                  height: 2.5rem;
+                  width: 2.5rem;
+                  background-color: transparent;
+                  color: #AEBCCF;
+                  border: 0.1rem;
+                  border-radius: 2.5rem;
+                  cursor: pointer; }
+                  #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon:hover {
+                    background-color: #a5f3fc;
+                    color: #155e75;
+                    transition: 1s; }
+                  #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon #tweetContainerIcons {
+                    position: absolute;
+                    top: 1.3rem;
+                    left: 0.6rem; }
+            #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom {
+              display: flex;
+              justify-content: space-between; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerMessageIcon {
+                position: relative;
+                height: 2.5rem;
+                width: 2.5rem;
+                background-color: transparent;
+                color: #AEBCCF;
+                border: 0.1rem;
+                border-radius: 2.5rem;
+                cursor: pointer; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerMessageIcon:hover {
+                  background-color: #a5f3fc;
+                  color: #155e75;
+                  transition: 1s; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerMessageIcon #tweetContainerIcons {
+                  position: absolute;
+                  top: 1.3rem;
+                  left: 0.6rem; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerRetweetIcon {
+                position: relative;
+                height: 2.5rem;
+                width: 2.5rem;
+                background-color: transparent;
+                color: #AEBCCF;
+                border: 0.1rem;
+                border-radius: 2.5rem;
+                cursor: pointer; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerRetweetIcon:hover {
+                  background-color: #a7f3d0;
+                  color: #065f46;
+                  transition: 1s; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerRetweetIcon #tweetContainerIcons {
+                  position: absolute;
+                  top: 1.3rem;
+                  left: 0.6rem; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerLikeIcon {
+                position: relative;
+                height: 2.5rem;
+                width: 2.5rem;
+                background-color: transparent;
+                color: #AEBCCF;
+                border: 0.1rem;
+                border-radius: 2.5rem;
+                cursor: pointer; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerLikeIcon:hover {
+                  background-color: #fecaca;
+                  color: #991b1b;
+                  transition: 1s; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerLikeIcon #tweetContainerIcons {
+                  position: absolute;
+                  top: 1.3rem;
+                  left: 0.6rem; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerCountIcon {
+                position: relative;
+                height: 2.5rem;
+                width: 2.5rem;
+                background-color: transparent;
+                color: #AEBCCF;
+                border: 0.1rem;
+                border-radius: 2.5rem;
+                cursor: pointer; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerCountIcon:hover {
+                  background-color: #a5f3fc;
+                  color: #155e75;
+                  transition: 1s; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerCountIcon #tweetContainerIcons {
+                  position: absolute;
+                  top: 1.3rem;
+                  left: 0.6rem; }
+              #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerForwardIcon {
+                margin-right: 4rem;
+                position: relative;
+                height: 2.5rem;
+                width: 2.5rem;
+                background-color: transparent;
+                color: #AEBCCF;
+                border: 0.1rem;
+                border-radius: 2.5rem;
+                cursor: pointer; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerForwardIcon:hover {
+                  background-color: #a5f3fc;
+                  color: #155e75;
+                  transition: 1s; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerBottom #tweetContainerForwardIcon #tweetContainerIcons {
+                  position: absolute;
+                  top: 1.3rem;
+                  left: 0.6rem; }
 
 /*# sourceMappingURL=style.css.map */
