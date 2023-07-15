@@ -6,14 +6,17 @@ exports.up = function(knex) {
   return knex.schema.createTable('tweets',tweets=>{
     tweets.increments('tweet_id')
     tweets.string('tweet')
+    tweets.timestamp('created_at')
+            .notNullable()
+            .defaultTo(knex.fn.now())
     tweets.integer('user_id')
-          .unsigned()
-          .notNullable()
-          .references('user_id')
-          .inTable('users')
-          .onUpdate('RESTRICT')
-          .onDelete('RESTRICT')
-  })
+            .unsigned()
+            .notNullable()
+            .references('user_id')
+            .inTable('users')
+            .onUpdate('RESTRICT')
+            .onDelete('RESTRICT')
+    })
 };
 
 /**

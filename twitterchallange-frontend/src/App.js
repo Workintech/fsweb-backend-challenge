@@ -8,12 +8,9 @@ import HomePage from './Pages/HomePage';
 import EntryPage from './Pages/EntryPage';
 import PrivateRoute from './context/PrivateRoute'
 import EntryPageProvider from './context/EntryPageNavContext';
-import HomePageFirstPage from './components/Home Page/HomePageFirstPage';
 import HomePageSearchPage from './components/Home Page/HomePageSearchPage';
-
-// import Firstpage from './components/EntryPage/Firstpage';
-// import Login from './components/EntryPage/Login';
-// import RegisterUser from './components/EntryPage/Register';
+import SendTweetPage from './components/Home Page/SendTweetPage';
+import HomePageProvider from './context/HomePageNavContext';
 
 
 
@@ -40,12 +37,14 @@ function App() {
           <Route path="/home" 
             element={
               <PrivateRoute>
+                <HomePageProvider>
                   <HomePage/>
+                </HomePageProvider>
               </PrivateRoute>
             }
           >
-           <Route path="a" element={<HomePageFirstPage/>}/>
            <Route path="b" element={<HomePageSearchPage/>}/>
+           <Route path="c" element={<SendTweetPage/>}/>
           </Route>
      </Routes>
     </div>

@@ -18,7 +18,7 @@ const [getTweets, tweets, loading, error] = useAxios([]);
 
 useEffect(() => {
   getTweets({ endpoint: "/api/tweets", reqType: REQ_TYPES.GET });
-}, []);
+}, [tweets]);
 
   return (
     <div id='tweetCardsMainContainer'>

@@ -19,7 +19,6 @@ function Login() {
 })
 
 const loginHandleSubmit = (data) => {
-  console.log('data',data)
   loginHandleSubmitContext(data);   
 }
 useEffect(()=>{

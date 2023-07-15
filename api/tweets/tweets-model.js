@@ -1,5 +1,30 @@
 const db = require('../../data/dbConfig');
 
+async function getAllTweets(){
+  const tweetRawData = await db('tweets as t')
+                                .join('users as u','t.user_id','u.user_id')
+                                .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                                .orderBy('t.created_at','desc') 
+
+              return tweetRawData;
+}
+
+async function getTweetByTweetId(id){
+  const getTweetData = await db('tweets as t')
+                              .join('users as u','t.user_id','u.user_id')
+                              .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                              .where('t.tweet_id',id)
+
+        return getTweetData;
+}
+
+
+
+async function insertTweet(payload){ 
+      const[id] = await db('tweets').insert(payload);
+      return await getTweetByTweetId(id);
+}
+
 async function getAllCascadingTweetReplies(){
   const tweetReplies = await db('tweetReplies as tr')
                                 .join('tweetReplies as utr','tr.tweetReply_id','utr.upperTweetReply_id')
@@ -7,8 +32,6 @@ async function getAllCascadingTweetReplies(){
 
               return tweetReplies
 }
-
-
 async function getALLTweetReplies (){
   const tweetReplies = await db('tweetReplies as tr')
                           .leftJoin('users as u','u.user_id','tr.user_id')
@@ -67,8 +90,12 @@ async function getAllTweetsByUser(){
   return output;
 }
 
+
 module.exports={
   getAllTweetsByUser,
   getALLTweetReplies,
-  getAllCascadingTweetReplies
+  getAllCascadingTweetReplies,
+  getAllTweets,
+  getTweetByTweetId,
+  insertTweet
 }

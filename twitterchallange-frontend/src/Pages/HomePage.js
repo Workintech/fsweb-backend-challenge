@@ -1,27 +1,34 @@
-import React,{useContext,useEffect} from 'react';
+//Outsource JS library
+import React,{useContext,useEffect,useState} from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
+//Internal JS
+import HomePageFirstPage from '../components/Home Page/HomePageFirstPage'
+import { HomePageNavContext } from '../context/HomePageNavContext';
 import { AuthContext } from '../context/AuthContext';
+
+
 
 function HomePage() {
   const navigate= useNavigate();
-  const {logOut} = useContext(AuthContext);
-
-  // useEffect(()=>{
-  //   if(isLoggedIn){
-  //     navigate('/')
-  //   }
-  // },[isLoggedIn])
+  const {homePageCount,setHomePageCount} = useContext(HomePageNavContext)
+  const {loginData,logOut} = useContext(AuthContext);
+  const [userWelcome,setUserWelcome]=useState('Hoşgeldin '+ loginData.name)
+ useEffect(()=>{
+  setTimeout(() => {
+    setUserWelcome(loginData.name)
+  }, 3000);
+ },[loginData])  
  
-
+    
   return (
       <section id='homePageContainer'>
           <section id="homePageleftNavBar">
-              <h2>Hoşgeldin</h2>
+              <h2>{userWelcome}</h2>
               <nav id="homePageleftNavBarMainBtns">
-                <button id='homePageleftNavBarBtn' onClick={()=>{navigate("/home/a")}}>Anasayfa</button>
-                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/b")}}>Profil</button>
-                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/c")}}>Tweet At</button>
+                <button id='homePageleftNavBarBtn' onClick={()=>{navigate("/home");setHomePageCount(true)}}>Anasayfa</button>
+                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/b");setHomePageCount(false)}}>Profil</button>
+                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/c");setHomePageCount(false)}}>Tweet At</button>
               </nav>
               <nav id="homePageleftNavBarPersonalBtns">
                 <button id='homePageleftNavBarBtn'>Ayarlar</button>
@@ -42,7 +49,7 @@ function HomePage() {
                 </div>
               </section>
               <section id="homePageMainSectionDataSection">
-                <Outlet/>
+               {homePageCount?<HomePageFirstPage/>:<Outlet/>}  
               </section>
           </section>
       </section>
