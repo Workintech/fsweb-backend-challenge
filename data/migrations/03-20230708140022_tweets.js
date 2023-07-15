@@ -5,6 +5,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('tweets',tweets=>{
     tweets.increments('tweet_id')
+    tweets.integer('parent_id').unsigned()
     tweets.string('tweet')
     tweets.timestamp('created_at')
             .notNullable()
