@@ -17,31 +17,30 @@ router.get('/mainpage', async (req,res,next)=>{
 })
 
 
-// router.get('/childs', async (req,res,next)=>{
-//   try {
-//     const allTweets = await tweetsModel.getTweetsChild();
-//     res.json(allTweets);
-//   } catch (error) {
-//     next()
-//   }
-// })
+router.get('/:id/c', async (req,res,next)=>{
+  try {
+    const allTweets = await tweetsModel.getAllChildTweetsbyParentID(req.params.id);
+    res.json(allTweets);
+  } catch (error) {
+    next()
+  }
+})
 
-// router.get('/parent', async (req,res,next)=>{
-//   try {
-//     const allTweets = await tweetsModel.getAllTweetsParent();
-//     res.json(allTweets);
-//   } catch (error) {
-//     next()
-//   }
-// })
-
-
+router.get('/:id', async (req,res,next)=>{
+  try {
+    const allTweets = await tweetsModel.getTweetById(req.params.id);
+    res.json(allTweets);
+  } catch (error) {
+    next()
+  }
+})
 
 router.post('/newtweet', async (req,res,next)=>{
   try {
-    const{user_id,tweet}=req.body;
+    const{user_id,tweet, parent_id}=req.body;
     const insertTweetData ={
       user_id : user_id,
+      parent_id:parent_id,
       tweet :tweet,
     }
     const insertedTweet = await tweetsModel.insertTweet(insertTweetData)

@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 @mixin frontPagebuttons{
   height:4rem;
   width:15rem;
@@ -23,20 +22,6 @@
   border :0.1rem solid $bordercolors;
   border-radius: 1rem;
   padding-left: 3rem;
-}
-@mixin iconsButton{
-  height:2.5rem;
-  width:2.5rem;
-  background-color:transparent;
-  color:$bordercolors;
-  border :0.1rem;
-  border-radius: 2.5rem;
-  //cursor: pointer;
-}
-@mixin tweetContainerIcons{
-    position: absolute;
-    top:1.3rem;
-    left:0.6rem;
 }
 
   #homePageContainer{
@@ -99,7 +84,19 @@
         background-color:$logoutHoverBgColor;
       }
      }
-    } 
-    @import 'homePageMainSection'
+    }
+    #userPageMainSection{
+      margin-top: 2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap:2rem;
+      align-items: center;
+
+      @import 'singleTweet';
+      @import 'sendChildTweet';
+      @import 'singleTweetChildTweets';
+  
+  }
 }
   

@@ -1,8 +1,13 @@
+//Outsource JS library
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+
 
 function TweetCard({tweet}) {
+  const navigate = useNavigate()
   return (
-    <section id='tweetCardContainer' key={tweet.tweet_id}>
+    <section id='tweetCardContainer' key={tweet.tweet_id} onClick={()=>{navigate('/'+tweet.userName+'/'+tweet.tweet_id)}} >
       <div id='tweetCardImg'><i className="fa-solid fa-user fa-xl"></i></div>
       <div id='tweetContainer'>
         <div id='tweetContainerTop'>

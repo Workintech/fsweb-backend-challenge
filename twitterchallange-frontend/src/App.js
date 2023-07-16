@@ -8,9 +8,11 @@ import HomePage from './Pages/HomePage';
 import EntryPage from './Pages/EntryPage';
 import PrivateRoute from './context/PrivateRoute'
 import EntryPageProvider from './context/EntryPageNavContext';
-import HomePageSearchPage from './components/Home Page/HomePageSearchPage';
-import SendTweetPage from './components/Home Page/SendTweetPage';
+import HomePageSearchPage from './components/HomePage/HomePageSearchPage';
+import SendTweetPage from './components/HomePage/SendTweetPage';
 import HomePageProvider from './context/HomePageNavContext';
+import UserTweetPage from './Pages/UserTweetPage';
+import SingleTweet from './components/UserTweetsPage/SingleTweet';
 
 
 
@@ -19,11 +21,6 @@ import './scss/style.css'
 
 function App() {
 
-          // <Routes>
-          //     <Route path='/' element={ <Firstpage/>}/>   
-          //     <Route path='/login' element={ <Login/>}/>  
-          //     <Route path='/register' element={ <RegisterUser/>}/>       
-          // </Routes>
 
   return (
     <div id='appContainer'>
@@ -31,9 +28,10 @@ function App() {
           <Route path='/' element={
               <EntryPageProvider>
                  <EntryPage/>
-              </EntryPageProvider>  
-            }/>
-          
+              </EntryPageProvider> 
+            }>
+          </Route>
+    
           <Route path="/home" 
             element={
               <PrivateRoute>
@@ -46,6 +44,14 @@ function App() {
            <Route path="b" element={<HomePageSearchPage/>}/>
            <Route path="c" element={<SendTweetPage/>}/>
           </Route>
+          <Route path="/:userid" element={
+            <PrivateRoute>
+              <UserTweetPage/>
+            </PrivateRoute>
+          }>
+          <Route path=":tweetid" element={<SingleTweet/>}/>
+            
+          </Route>      
      </Routes>
     </div>
   )

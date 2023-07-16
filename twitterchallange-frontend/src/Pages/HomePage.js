@@ -3,7 +3,7 @@ import React,{useContext,useEffect,useState} from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 //Internal JS
-import HomePageFirstPage from '../components/Home Page/HomePageFirstPage'
+import HomePageFirstPage from '../components/HomePage/HomePageFirstPage'
 import { HomePageNavContext } from '../context/HomePageNavContext';
 import { AuthContext } from '../context/AuthContext';
 

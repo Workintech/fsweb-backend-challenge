@@ -1,0 +1,62 @@
+@mixin sendChildTweetInputs{
+  height:1rem;
+  width:35rem;
+  background-color:$lightBgColor;
+  font-size: 1rem;
+  font-family: $lineText;
+  color:$bordercolors;
+  border :0.1rem solid $bordercolors;
+  border-radius: 1rem;
+  padding-left: 3rem;
+}
+@mixin sendChildTweetButtons{
+  height:4rem;
+  width:10rem;
+  font-size: 1.2rem;
+  font-family: $lineText;
+  border-radius: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    transition: 1s;
+  }
+}
+
+#sendChildTweetMainContainer{ //SendTweetMainContainer
+  #sendChildTweetForm{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    #sendChildTweetLabel{
+      color:darkBgColor;
+      font-family: $lineText;
+      font-size: 1rem;
+      display: flex;
+    }
+    #sendChildTweetInput{
+      @include sendChildTweetInputs;
+      height:3rem;
+      background-color:$verylightGrayBgColor;
+      font-size: 1rem;
+      padding-top:1rem;
+      padding-right: 3rem;
+    }
+    #sendChildTweetButtonWrapper{
+      display: flex;
+      justify-content: flex-end;
+      button{
+        @include sendChildTweetButtons;
+        background-color:$lightBgColor;
+        font-family: $lineText;
+        color:$bordercolors;
+        border :0.1rem solid $bordercolors;
+        &:hover{
+        background-color:$darkBgColor;
+        }
+      }
+
+    }
+    
+  }
+
+}

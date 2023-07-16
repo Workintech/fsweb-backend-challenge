@@ -1,25 +1,19 @@
 const db = require('../../data/dbConfig');
+const {formatTweets } = require('../../helper/index')
 
-// async function getAllTweets(){
-//   const tweetRawData = await db('tweets as t')
-//                                 .join('users as u','t.user_id','u.user_id')
-//                                 .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
-//                                 .orderBy('t.created_at','desc') 
+async function getTweetById(id){
+  const tweetRawData = await db('tweets as t')
+                                .join('users as u','t.user_id','u.user_id')
+                                .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                                .where('t.tweet_id',id)
+                                .first()
+  return tweetRawData;
+}
 
-//               return tweetRawData;
-// }
-// async function getTweetByTweetId(id){
-//   const getTweetData = await db('tweets as t')
-//                               .join('users as u','t.user_id','u.user_id')
-//                               .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
-//                               .where('t.tweet_id',id)
-
-//         return getTweetData;
-// }
 
 async function insertTweet(payload){ 
       const[id] = await db('tweets').insert(payload);
-      return await getTweetByTweetId(id);
+      return await getTweetById(id);
 }
 
 
@@ -39,37 +33,24 @@ async function getAllTweetsParent(){
                                 .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
                                 .whereNull('t.parent_id') 
                                 .orderBy('t.created_at','desc')
-                               
+    
+  return formatTweets(tweetRawData);
+}
 
-  const allTweetReplies = await getTweetsChild();
-  
-
-  const allTweetsData = tweetRawData.reduce((acc,allTweetsItem)=>{
-    //check if newtweet
-    const registeredTweet = acc.find(tweet=>tweet.tweet_id ===allTweetsItem.tweet_id)  
-    //NewModel
-    let tweetReplies = allTweetReplies.filter(filterItem => filterItem.parentTweet_id=== allTweetsItem.tweet_id);
-
-    if(!registeredTweet){
-        const newTweet ={
-          tweet_id:allTweetsItem.tweet_id,
-          tweet:allTweetsItem.tweet,
-          name:allTweetsItem.name,
-          userName:allTweetsItem.userName,
-          replies:[]
-        }
-        newTweet.replies.push(...tweetReplies)
-        acc.push(newTweet);
-    }else{
-      registeredTweet.replies.push(...tweetReplies)
-    }
-    return acc;
-  },[])
-  return allTweetsData;
+async function getAllChildTweetsbyParentID(id){
+  const tweetRawData = await db('tweets as t')
+                                .join('users as u','t.user_id','u.user_id')
+                                .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                                .where('t.parent_id',id) 
+                                .orderBy('t.created_at','desc')
+    
+  return formatTweets(tweetRawData);
 }
 
 module.exports={
   getAllTweetsParent,
   insertTweet,
-  getTweetsChild,
+  getAllChildTweetsbyParentID,
+  getTweetById
 }
+exports.getTweetsChild = getTweetsChild;

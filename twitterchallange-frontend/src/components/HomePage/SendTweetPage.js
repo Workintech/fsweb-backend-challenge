@@ -22,12 +22,9 @@ function SendTweetPage() {
   } = useForm({mode:'onChange',
     defaultValues:{
       user_id:loginData.id,
+      parent_id:null,
       tweet :""
     }
-  })
-  useEffect(()=>{
-
-    console.log('loginData',loginData)
   })
   
 
@@ -35,6 +32,7 @@ function SendTweetPage() {
     sendTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data})
     setHomePageCount(true);
     navigate('/home')
+    console.log('mainSubmit',data)
   }
 
 
@@ -47,7 +45,7 @@ function SendTweetPage() {
           data-cy="loginDataName"
           type="text"
           placeholder="Herkes senin tweetini sabırsızlıkla bekliyor...."
-          maxlength="128"
+          maxLength="128"
           {...register("tweet", { required: "Lütfen kullanıcı adınızı giriniz" })}
           />
         <button data-cy="sendTweetSbmtBtn"type="submit">Tweeti Gönder</button>

@@ -7,12 +7,6 @@ import TweetCard from './TweetCard';
 
 function HomePageFirstPage() {
 
-// const [getUsers, users, loading, error] = useAxios([]);
-
-
-// useEffect(() => {
-//   getUsers({ endpoint: "/api/users", reqType: REQ_TYPES.GET });
-// }, []);
 const [getTweets, tweets, loading, error] = useAxios([]);
 
 

@@ -1,9 +1,10 @@
+//Outsource JS Library
 import React,{useContext,useEffect} from 'react';
-import { AuthContext } from '../../context/AuthContext';
-import { EntryPageNavContext } from '../../context/EntryPageNavContext';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-
+//Internal JS
+import { AuthContext } from '../../context/AuthContext';
+import { EntryPageNavContext } from '../../context/EntryPageNavContext';
 
 
 function Login() {
