@@ -30,7 +30,7 @@
   color:$bordercolors;
   border :0.1rem;
   border-radius: 2.5rem;
-  cursor: pointer;
+  //cursor: pointer;
 }
 @mixin tweetContainerIcons{
     position: absolute;
@@ -209,70 +209,89 @@
             display: flex;
             justify-content: space-between;
 
-            #tweetContainerMessageIcon{
-              position: relative;
-              @include iconsButton;
-              &:hover{
+            #tweetContainerBottomMessageIcon_Wrapper{
+              display: flex;
+              flex-direction:row;
+              align-items: center;
+              background-color: transparent;
+              gap:0.2rem;
+              border: none;
+              cursor: pointer;
+              &:hover #tweetContainerMessageIcon{
                 background-color: #a5f3fc;
                 color:#155e75;
                 transition: 1s;
-              }    
-              #tweetContainerIcons{
-              @include tweetContainerIcons
-                }
-            }
-            #tweetContainerRetweetIcon{
-              position: relative;
-              @include iconsButton;
-              &:hover{
-                background-color: #a7f3d0;
-                color:#065f46;
+              }   
+              &:hover #tweetContainerBottomText{
+                color:#155e75;
                 transition: 1s;
-              }
-              #tweetContainerIcons{
-                @include tweetContainerIcons
+              } 
+                #tweetContainerBottomText{
+                  font-size: 1rem;
+                  font-family: $lineText;
+                  color:$bordercolors;    
                 }
-            }
-            #tweetContainerLikeIcon{
-              position: relative;
-              @include iconsButton;
-              &:hover{
-                background-color: #fecaca;
-                color:#991b1b;
-                transition: 1s;
-              }
-              #tweetContainerIcons{
-                @include tweetContainerIcons
+                #tweetContainerMessageIcon{
+                  position: relative;
+                  @include iconsButton; 
+                }    
+                  #tweetContainerIcons{
+                  @include tweetContainerIcons
+                    }
+                }
+                #tweetContainerRetweetIcon{
+                  position: relative;
+                  @include iconsButton;
+                  &:hover{
+                    background-color: #a7f3d0;
+                    color:#065f46;
+                    transition: 1s;
+                  }
+                  #tweetContainerIcons{
+                    @include tweetContainerIcons
+                    }
+                }
+                #tweetContainerLikeIcon{
+                  position: relative;
+                  @include iconsButton;
+                  &:hover{
+                    background-color: #fecaca;
+                    color:#991b1b;
+                    transition: 1s;
+                  }
+                  #tweetContainerIcons{
+                    @include tweetContainerIcons
 
+                    }
                 }
-            }
-            #tweetContainerCountIcon{
-              position: relative;
-              @include iconsButton;
-              &:hover{
-                background-color: #a5f3fc;
-                color:#155e75;
-                transition: 1s;
-              }  
-              #tweetContainerIcons{
-                @include tweetContainerIcons
+                #tweetContainerCountIcon{
+                  position: relative;
+                  @include iconsButton;
+                  &:hover{
+                    background-color: #a5f3fc;
+                    color:#155e75;
+                    transition: 1s;
+                  }  
+                  #tweetContainerIcons{
+                    @include tweetContainerIcons
 
+                    }
                 }
-            }
-            #tweetContainerForwardIcon{
-              margin-right:4rem;
-              position: relative;
-              @include iconsButton;
-              &:hover{
-                background-color: #a5f3fc;
-                color:#155e75;
-                transition: 1s;
-              }  
-              #tweetContainerIcons{
-                @include tweetContainerIcons
-              }
-            }
+                #tweetContainerForwardIcon{
+                  margin-right:4rem;
+                  position: relative;
+                  @include iconsButton;
+                  &:hover{
+                    background-color: #a5f3fc;
+                    color:#155e75;
+                    transition: 1s;
+                  }  
+                  #tweetContainerIcons{
+                    @include tweetContainerIcons
+                  }
+                }
           }
+          
         }
         }
       }    

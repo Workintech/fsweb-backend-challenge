@@ -17,7 +17,7 @@ const [getTweets, tweets, loading, error] = useAxios([]);
 
 
 useEffect(() => {
-  getTweets({ endpoint: "/api/tweets", reqType: REQ_TYPES.GET });
+  getTweets({ endpoint: "/api/tweets/mainpage", reqType: REQ_TYPES.GET });
 }, [tweets]);
 
   return (

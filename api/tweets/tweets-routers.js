@@ -7,31 +7,35 @@ const tweetsModel = require('./tweets-model');
 
 //Routers
 
-router.get('/', async (req,res,next)=>{
+router.get('/mainpage', async (req,res,next)=>{
   try {
-    const allTweets = await tweetsModel.getAllTweets();
+    const allTweets = await tweetsModel.getAllTweetsParent();
     res.json(allTweets);
   } catch (error) {
     next()
   }
 })
 
-// router.get('/', async (req,res,next)=>{
+
+// router.get('/childs', async (req,res,next)=>{
 //   try {
-//     const usersTweets = await tweetsModel.getAllTweetsByUser();
-//     res.json(usersTweets);
+//     const allTweets = await tweetsModel.getTweetsChild();
+//     res.json(allTweets);
 //   } catch (error) {
 //     next()
 //   }
 // })
-router.get('/replies', async (req,res,next)=>{
-  try {
-    const usersTweets = await tweetsModel.getAllCascadingTweetReplies();
-    res.json(usersTweets);
-  } catch (error) {
-    next()
-  }
-})
+
+// router.get('/parent', async (req,res,next)=>{
+//   try {
+//     const allTweets = await tweetsModel.getAllTweetsParent();
+//     res.json(allTweets);
+//   } catch (error) {
+//     next()
+//   }
+// })
+
+
 
 router.post('/newtweet', async (req,res,next)=>{
   try {

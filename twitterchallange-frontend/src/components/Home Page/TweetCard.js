@@ -13,12 +13,23 @@ function TweetCard({tweet}) {
           </div>
         </div>
         <div id='tweetContainerMid'> {tweet.tweet} </div>
-        <div id='tweetContainerBottom'> 
-        <button id='tweetContainerMessageIcon'><i id='tweetContainerIcons' className="fa-regular fa-comment fa-xl"></i></button>
-        <button id='tweetContainerRetweetIcon'><i id='tweetContainerIcons' className="fa-solid fa-retweet fa-xl"></i></button>
-        <button id='tweetContainerLikeIcon'><i id='tweetContainerIcons' className="fa-solid fa-heart fa-xl"></i></button> 
-        <button id='tweetContainerCountIcon'><i id='tweetContainerIcons' className="fa-solid fa-chart-simple fa-xl"></i></button> 
-        <button id='tweetContainerForwardIcon'><i id='tweetContainerIcons' className="fa-regular fa-share-from-square fa-xl"></i></button>   
+          <div id='tweetContainerBottom'> 
+            <button id='tweetContainerBottomMessageIcon_Wrapper'>
+              <div id='tweetContainerMessageIcon'><i id='tweetContainerIcons' className="fa-regular fa-comment fa-xl"></i></div>
+              <p id='tweetContainerBottomText'>{tweet.replies.length===0?'':tweet.replies.length}</p>
+            </button>
+            <div id='tweetContainerBottomIcons'>
+              <button id='tweetContainerRetweetIcon'><i id='tweetContainerIcons' className="fa-solid fa-retweet fa-xl"></i></button>
+            </div>
+            <div id='tweetContainerBottomIcons'>
+              <button id='tweetContainerLikeIcon'><i id='tweetContainerIcons' className="fa-solid fa-heart fa-xl"></i></button>
+            </div> 
+            <div id='tweetContainerBottomIcons'>
+              <button id='tweetContainerCountIcon'><i id='tweetContainerIcons' className="fa-solid fa-chart-simple fa-xl"></i></button>
+            </div> 
+            <div id='tweetContainerBottomIcons'>
+              <button id='tweetContainerForwardIcon'><i id='tweetContainerIcons' className="fa-regular fa-share-from-square fa-xl"></i></button>  
+            </div> 
         </div>
       </div>
 
