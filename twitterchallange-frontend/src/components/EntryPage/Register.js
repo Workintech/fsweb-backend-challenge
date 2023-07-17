@@ -41,21 +41,21 @@ const registerHandleSubmit=(data)=>{
       }}><i className="fa-sharp fa-regular fa-circle-xmark fa-4x"></i></button>
       
       <form id='entryPageForm' onSubmit={handleSubmit(registerHandleSubmit)} >
-        <h2>Kayit</h2>
-        <label htmlFor="title "> İsim</label>
+        <h2>Register</h2>
+        <label htmlFor="title ">Name</label>
         <input
         data-cy="registerDataName"
         type="text"
-        placeholder="İsim"
-        {...register("name", { required: "Lütfen isminizi giriniz" })}
+        placeholder="Name"
+        {...register("name", { required: "Please enter your name" })}
         />
         {errors?.name && <p id="formError">{errors.name.message}</p>}
         <label htmlFor="title "> Kullanıcı Adı</label>
         <input
         data-cy="registerUserName"
         type="text"
-        placeholder="Kullanıcı adı"
-        {...register("userName", { required: "Lütfen kullanıcı adınızı giriniz" })}
+        placeholder="Username"
+        {...register("userName", { required: "Please enter your username" })}
         />
         {errors?.userName && <p id="formError">{errors.userName.message}</p>}
         <label htmlFor="title "> E-mail</label>
@@ -63,19 +63,19 @@ const registerHandleSubmit=(data)=>{
         data-cy="registerUserEmail"
         type="text"
         placeholder="E-mail"
-        {...register("userEmail", { required: "Lütfen e-mail adresinizi giriniz" })}
+        {...register("userEmail", { required: "Please enter your E-mail" })}
         />
         {errors?.userEmail && <p id="formError">{errors.userEmail.message}</p>}
-        <label htmlFor="title "> Şifre </label>
+        <label htmlFor="title "> Password </label>
         <input
         data-cy="registerPassword"
         type="text"
         placeholder="Password"
-        {...register("password", { required: "Lütfen şifre giriniz"})}
+        {...register("password", { required: "Please enter password"})}
         />
         {errors?.password && <p id="formError">{errors.password.message}</p>}
         
-        <button data-cy="registerSbmtBtn" type="submit">Kayıt</button>
+        <button data-cy="registerSbmtBtn" type="submit">Submit</button>
         {registerErrorReponse&&<p id="axiosError">{registerErrorReponse}</p>}
       </form>
     </section>

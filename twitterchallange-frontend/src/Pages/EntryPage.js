@@ -23,8 +23,8 @@ function EntryPage() {
       </section>
       <footer id='entryPageFooter'> 
         <nav>
-          <a id='footerLink' href="mailto:serkantrmn85@gmail.com">Yazılımcı ile iletişime geç </a> 
-          <a id='footerLink' href='https://serkan-toraman.vercel.app/' target="_blank" rel="noopener noreferrer">Yazılımcı Websitesi </a> 
+          <a id='footerLink' href="mailto:serkantrmn85@gmail.com">Contact to Developer </a> 
+          <a id='footerLink' href='https://serkan-toraman.vercel.app/' target="_blank" rel="noopener noreferrer">Developer Website </a> 
         </nav>
       </footer>
     </>

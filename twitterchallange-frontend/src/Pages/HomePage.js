@@ -15,7 +15,7 @@ function HomePage() {
   const navigate= useNavigate();
   const {homePageCount,setHomePageCount} = useContext(HomePageNavContext)
   const {loginData,logOut} = useContext(AuthContext);
-  const [userWelcome,setUserWelcome]=useState('Hoşgeldin '+ loginData.name)
+  const [userWelcome,setUserWelcome]=useState('Welcome '+ loginData.name)
  useEffect(()=>{
   setTimeout(() => {
     setUserWelcome(loginData.name)
@@ -28,16 +28,16 @@ function HomePage() {
           <section id="homePageleftNavBar">
               <h2>{userWelcome}</h2>
               <nav id="homePageleftNavBarMainBtns">
-                <button id='homePageleftNavBarBtn' onClick={()=>{navigate("/home");setHomePageCount(true)}}>Anasayfa</button>
-                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/b");setHomePageCount(false)}}>Profil</button>
+                <button id='homePageleftNavBarBtn' onClick={()=>{navigate("/home");setHomePageCount(true)}}>Home Page</button>
+                <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/b");setHomePageCount(false)}}>Profile</button>
               </nav>
               <nav id="homePageleftNavBarPersonalBtns">
-                <button id='homePageleftNavBarBtn'>Ayarlar</button>
-                <button id='logoutBtn'  onClick={()=>{logOut();navigate("/")}}>Çıkış</button>
+                <button id='homePageleftNavBarBtn'>Settings</button>
+                <button id='logoutBtn'  onClick={()=>{logOut();navigate("/")}}>Logout</button>
               </nav>
           </section>
           <section id="homePageMainSection">
-              <HomePageSearchInput/>
+              {/* <HomePageSearchInput/> */}
               <SendTweetPage/>
               <section id="homePageMainSectionDataSection">
                {homePageCount?<HomePageFirstPage/>:<Outlet/>}  

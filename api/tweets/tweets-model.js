@@ -46,11 +46,25 @@ async function getAllChildTweetsbyParentID(id){
     
   return formatTweets(tweetRawData);
 }
+async function getAllTweetsParentByUser(userName){
+  const tweetRawData = await db('tweets as t')
+                                .join('users as u','t.user_id','u.user_id')
+                                .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                                .whereNull('t.parent_id')
+                                .andWhere('u.userName',userName)
+                                .orderBy('t.created_at','desc')
+    
+  return formatTweets(tweetRawData);
+}
+
+
+
 
 module.exports={
   getAllTweetsParent,
   insertTweet,
   getAllChildTweetsbyParentID,
-  getTweetById
+  getTweetById,
+  getAllTweetsParentByUser
 }
 exports.getTweetsChild = getTweetsChild;

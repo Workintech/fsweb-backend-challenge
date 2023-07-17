@@ -40,17 +40,17 @@ function SendTweetPage() {
   return (
     <section id='sendTweetMainContainer'>
       <form id='sendTweetForm' onSubmit={handleSubmit(loginHandleSubmit)}>
-          <label id="sendTweetLabel">Tweet Gonder...</label>
+          <label id="sendTweetLabel">Send your tweet</label>
           <textarea
           id='sendTweetInput'
           data-cy="loginDataName"
           type="text"
-          placeholder="Herkes senin tweetini sabırsızlıkla bekliyor...."
+          placeholder="What is happening?!"
           maxLength="128"
-          {...register("tweet", { required: "Lütfen kullanıcı adınızı giriniz" })}
+          {...register("tweet")}
           />
           <div id='sendTweetButtonWrapper'>
-            <button data-cy="sendTweetSbmtBtn"type="submit">Tweeti Gönder</button>
+            <button data-cy="sendTweetSbmtBtn"type="submit">Tweet</button>
           </div>
         
       </form>

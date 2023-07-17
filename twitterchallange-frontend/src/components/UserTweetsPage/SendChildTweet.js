@@ -9,7 +9,7 @@ import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 
 
 function SendChildTweet() {
-    const {tweetid,userid} = useParams();
+    const {tweetid,userName} = useParams();
     const {loginData} = useContext(AuthContext);
     const [sendChildTweets, childTweets, loading, error] = useAxios([]);
 
@@ -36,17 +36,17 @@ function SendChildTweet() {
   return (
     <section id='sendChildTweetMainContainer'>
     <form id='sendChildTweetForm' onSubmit={handleSubmit(tweetHandleSubmit)}>
-        <label id="sendChildTweetLabel">${userid} cevaplanmaktadir...</label>
+        <label id="sendChildTweetLabel">Replying to ${userName}</label>
         <textarea
         id='sendChildTweetInput'
         data-cy="sendChildTweetInputTest"
         type="text"
-        placeholder="Cevap ver..."
+        placeholder="Tweet your reply!"
         maxLength="128"
         {...register("tweet")}
         />
       <div id="sendChildTweetButtonWrapper">
-        <button data-cy="sendChildTweetSbmtBtn"type="submit">Tweeti Gönder</button>
+        <button data-cy="sendChildTweetSbmtBtn"type="submit">Reply</button>
       </div>
     </form>
   </section>

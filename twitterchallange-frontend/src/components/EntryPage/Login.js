@@ -40,24 +40,24 @@ useEffect(()=>{
         setEntryPageNum(0)
       }}><i className="fa-sharp fa-regular fa-circle-xmark fa-4x"></i></button>
       <form id='entryPageForm' onSubmit={handleSubmit(loginHandleSubmit)} >
-        <h2 dt-cy="loginFormH2">Giriş</h2>
-        <label htmlFor="title "> İsim</label>
+        <h2 dt-cy="loginFormH2">Login</h2>
+        <label htmlFor="title "> Name</label>
         <input
         data-cy="loginDataName"
         type="text"
-        placeholder="İsim"
-        {...register("loginDataName", { required: "Lütfen kullanıcı adınızı giriniz" })}
+        placeholder="Name"
+        {...register("loginDataName", { required: "Please enter your name" })}
         />
         {errors?.loginDataName && <p id="formError">{errors.loginDataName.message}</p>}
-        <label htmlFor="title "> Şifre</label>
+        <label htmlFor="title "> Password</label>
         <input
         data-cy="loginPassword"
         type="text"
-        placeholder="Şifre"
-        {...register("password", { required: "Lütfen kullanıcı şifre giriniz" })}
+        placeholder="Password"
+        {...register("password", { required: "Please enter your password" })}
         />
         {errors?.password && <p id="formError">{errors.password.message}</p>}
-        <button data-cy="loginSbmtBtn"type="submit">Giriş</button>
+        <button data-cy="loginSbmtBtn"type="submit">Submit</button>
         {errorReponse&&<p id="axiosError">{errorReponse}</p>}
       </form>
     </section>

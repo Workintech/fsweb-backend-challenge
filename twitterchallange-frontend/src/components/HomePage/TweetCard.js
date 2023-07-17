@@ -15,7 +15,7 @@ function TweetCard({tweet}) {
       <div id='tweetCardImg'><i className="fa-solid fa-user fa-xl"></i></div>
       <div id='tweetContainer'>
         <div id='tweetContainerTop'>
-          <h3 id="tweetContainerTopName">{tweet.name}</h3>
+          <h3 id="tweetContainerTopName" onMouseDown={()=>{navigate('/'+tweet.userName+'/t')}}>{tweet.name}</h3>
           <h3 id="tweetContainerTopUserName">@{tweet.userName}</h3>
           <div id='tweetContainerTopIconWrapper'>
             <p id='tweetContainerTopTime'>{moment(tweet.created_at).fromNow()}</p>

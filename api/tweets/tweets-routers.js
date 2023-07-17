@@ -34,14 +34,24 @@ router.get('/:id', async (req,res,next)=>{
     next()
   }
 })
+router.get('/mainpage/:id', async (req,res,next)=>{
+  try {
+    const allTweets = await tweetsModel.getAllTweetsParentByUser(req.params.id);
+    res.json(allTweets);
+  } catch (error) {
+    next()
+  }
+})
 
 router.post('/newtweet', async (req,res,next)=>{
   try {
     const{user_id,tweet, parent_id }=req.body;
+    const date = new Date().toISOString()
     const insertTweetData ={
       user_id : user_id,
       parent_id:parent_id,
       tweet :tweet,
+      created_at:date
     }
     const insertedTweet = await tweetsModel.insertTweet(insertTweetData)
     res.status(201).json(insertedTweet);

@@ -11,7 +11,8 @@ import EntryPageProvider from './context/EntryPageNavContext';
 import HomePageSearchPage from './components/HomePage/HomePageSearchPage';
 import HomePageProvider from './context/HomePageNavContext';
 import UserTweetPage from './Pages/UserTweetPage';
-import SingleTweet from './components/UserTweetsPage/SingleTweet';
+import SingleTweetPage from './components/UserTweetsPage/SingleTweetPage';
+import UserTweetsList from './components/UserTweetsPage/UserTweetsList'
 
 
 
@@ -42,13 +43,13 @@ function App() {
           >
            <Route path="b" element={<HomePageSearchPage/>}/>
           </Route>
-          <Route path="/:userid" element={
+          <Route path="/:userName" element={
             <PrivateRoute>
               <UserTweetPage/>
             </PrivateRoute>
           }>
-          <Route path=":tweetid" element={<SingleTweet/>}/>
-            
+          <Route path="t" element={<UserTweetsList/>}/>
+          <Route path=":tweetid" element={<SingleTweetPage/>}/>
           </Route>      
      </Routes>
     </div>
