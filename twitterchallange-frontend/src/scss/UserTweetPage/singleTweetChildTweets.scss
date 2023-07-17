@@ -61,6 +61,13 @@
         flex-grow: 1;
         display: flex;
         justify-content: end;
+        align-items: center;
+        gap:0.5rem;
+        #tweetContainerTopTime{
+        font-family: $lineText;
+        color:$darkBgColor;
+        font-size: 1rem;
+        }
         #tweetContainerTopIcon{
           position: relative;
           @include iconsButton;

@@ -80,6 +80,13 @@
                 flex-grow: 1;
                 display: flex;
                 justify-content: end;
+                align-items: center;
+                gap:0.5rem;
+                #tweetContainerTopTime{
+                font-family: $lineText;
+                color:$darkBgColor;
+                font-size: 1rem;
+                }
                 #tweetContainerTopIcon{
                   position: relative;
                   @include iconsButton;
@@ -196,41 +203,5 @@
           }
         }    
       }
-      #sendTweetMainContainer{ //SendTweetMainContainer
-        margin-top: 5rem;
-        #sendTweetForm{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap:2rem;
-          #sendTweetLabel{
-            color:darkBgColor;
-            font-family: $lineText;
-            font-size: 2rem;
-            display: flex;
-          }
-          #sendTweetInput{
-            @include loginFormInputs;
-            height:10rem;
-            background-color:$verylightGrayBgColor;
-            font-size: 1.5rem;
-            padding-top:4rem;
-            padding-right: 3rem;
-
-          
-          }
-          button{
-            @include frontPagebuttons;
-            background-color:$lightBgColor;
-            max-width:40rem;
-            font-family: $lineText;
-            color:$bordercolors;
-            border :0.1rem solid $bordercolors;
-            &:hover{
-            background-color:$darkBgColor;
-            }
-          }
-        }
-      
-      }
+          @import 'sendTweet'
       }

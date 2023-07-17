@@ -17,14 +17,13 @@ function SendChildTweet() {
       register,
       handleSubmit,
       formState: { errors },
-    } = useForm({mode:'all',
+    } = useForm({mode:'onChange',
       defaultValues:{
         parent_id:tweetid,
         user_id:loginData.id,
         tweet :""
       }
     })
-
 
     const tweetHandleSubmit = (data) => {
       console.log("tweetid",tweetid)

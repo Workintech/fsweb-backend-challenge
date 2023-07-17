@@ -318,7 +318,13 @@ table {
               #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
                 flex-grow: 1;
                 display: flex;
-                justify-content: end; }
+                justify-content: end;
+                align-items: center;
+                gap: 0.5rem; }
+                #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopTime {
+                  font-family: "Plus Jakarta Sans", cursive;
+                  color: #252128;
+                  font-size: 1rem; }
                 #homePageContainer #homePageMainSection #homePageMainSectionDataSection #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon {
                   position: relative;
                   height: 2.5rem;
@@ -444,49 +450,49 @@ table {
                   position: absolute;
                   top: 1.3rem;
                   left: 0.6rem; }
-    #homePageContainer #homePageMainSection #sendTweetMainContainer {
-      margin-top: 5rem; }
-      #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm {
+    #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem; }
+      #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetLabel {
+        color: darkBgColor;
+        font-family: "Plus Jakarta Sans", cursive;
+        font-size: 1rem;
+        display: flex; }
+      #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetInput {
+        height: 1rem;
+        width: 35rem;
+        background-color: #FFFFFF;
+        font-size: 1rem;
+        font-family: "Plus Jakarta Sans", cursive;
+        color: #AEBCCF;
+        border: 0.1rem solid #AEBCCF;
+        border-radius: 1rem;
+        padding-left: 3rem;
+        height: 3rem;
+        background-color: #f8fafc;
+        font-size: 1rem;
+        padding-top: 1rem;
+        padding-right: 3rem; }
+      #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetButtonWrapper {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem; }
-        #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetLabel {
-          color: darkBgColor;
-          font-family: "Plus Jakarta Sans", cursive;
-          font-size: 2rem;
-          display: flex; }
-        #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetInput {
-          height: 3rem;
-          width: 40rem;
-          background-color: #FFFFFF;
-          font-size: 1rem;
-          font-family: "Plus Jakarta Sans", cursive;
-          color: #AEBCCF;
-          border: 0.1rem solid #AEBCCF;
-          border-radius: 1rem;
-          padding-left: 3rem;
-          height: 10rem;
-          background-color: #f8fafc;
-          font-size: 1.5rem;
-          padding-top: 4rem;
-          padding-right: 3rem; }
-        #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm button {
+        justify-content: flex-end; }
+        #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetButtonWrapper button {
           height: 4rem;
-          width: 15rem;
-          font-size: 1.5rem;
+          width: 10rem;
+          font-size: 1.2rem;
           font-family: "Plus Jakarta Sans", cursive;
           border-radius: 1rem;
           text-decoration: none;
           cursor: pointer;
           background-color: #FFFFFF;
-          max-width: 40rem;
           font-family: "Plus Jakarta Sans", cursive;
           color: #AEBCCF;
           border: 0.1rem solid #AEBCCF; }
-          #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm button:hover {
+          #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetButtonWrapper button:hover {
             transition: 1s; }
-          #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm button:hover {
+          #homePageContainer #homePageMainSection #sendTweetMainContainer #sendTweetForm #sendTweetButtonWrapper button:hover {
             background-color: #252128; }
 
 #homePageContainer {
@@ -602,7 +608,13 @@ table {
           #homePageContainer #userPageMainSection #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
             flex-grow: 1;
             display: flex;
-            justify-content: end; }
+            justify-content: end;
+            align-items: center;
+            gap: 0.5rem; }
+            #homePageContainer #userPageMainSection #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopTime {
+              font-family: "Plus Jakarta Sans", cursive;
+              color: #252128;
+              font-size: 1.2rem; }
             #homePageContainer #userPageMainSection #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon {
               position: relative;
               height: 2.5rem;
@@ -813,7 +825,13 @@ table {
             #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
               flex-grow: 1;
               display: flex;
-              justify-content: end; }
+              justify-content: end;
+              align-items: center;
+              gap: 0.5rem; }
+              #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopTime {
+                font-family: "Plus Jakarta Sans", cursive;
+                color: #252128;
+                font-size: 1rem; }
               #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #tweetContainerTopIcon {
                 position: relative;
                 height: 2.5rem;

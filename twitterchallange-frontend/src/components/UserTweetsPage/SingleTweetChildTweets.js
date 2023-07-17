@@ -1,6 +1,7 @@
 //Outsource JS Library
 import React,{useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
+import moment from 'moment'
 
 
 function SingleTweetChildTweets({tweet}) {
@@ -14,6 +15,7 @@ function SingleTweetChildTweets({tweet}) {
         <h3 id="tweetContainerTopName">{tweet.name}</h3>
         <h3 id="tweetContainerTopUserName">@{tweet.userName}</h3>
         <div id='tweetContainerTopIconWrapper'>
+          <p id='tweetContainerTopTime'>{moment(tweet.created_at).fromNow()}</p>
           <button id='tweetContainerTopIcon'><i id='tweetContainerIcons' className="fa-solid fa-ellipsis fa-xl"></i></button>
         </div>
       </div>

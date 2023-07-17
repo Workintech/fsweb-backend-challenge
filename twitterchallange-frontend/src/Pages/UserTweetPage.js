@@ -22,7 +22,6 @@ function HomePage() {
               <nav id="homePageleftNavBarMainBtns">
                 <button id='homePageleftNavBarBtn' onClick={()=>{navigate('/home')}}>Anasayfa</button>
                 <button id='homePageleftNavBarBtn'onClick={()=>{}}>Profil</button>
-                <button id='homePageleftNavBarBtn'onClick={()=>{}}>Tweet At</button>
               </nav>
               <nav id="homePageleftNavBarPersonalBtns">
                 <button id='homePageleftNavBarBtn'>Ayarlar</button>

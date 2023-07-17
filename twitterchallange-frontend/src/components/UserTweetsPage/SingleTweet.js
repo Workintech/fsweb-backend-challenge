@@ -1,6 +1,7 @@
 //Outsource JS Library
 import React,{useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import moment from 'moment'
 
 
 //Internal JS
@@ -24,6 +25,7 @@ function SingleTweet() {
         <h3 id="tweetContainerTopName">{tweetById.name}</h3>
         <h3 id="tweetContainerTopUserName">@{tweetById.userName}</h3>
         <div id='tweetContainerTopIconWrapper'>
+          <p id='tweetContainerTopTime'>{moment(tweetById.created_at).fromNow()}</p>
           <button id='tweetContainerTopIcon'><i id='tweetContainerIcons' className="fa-solid fa-ellipsis fa-xl"></i></button>
         </div>
       </div>

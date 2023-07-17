@@ -7,7 +7,7 @@ exports.up = function(knex) {
     tweets.increments('tweet_id')
     tweets.integer('parent_id').unsigned()
     tweets.string('tweet')
-    tweets.timestamp('created_at')
+    tweets.timestamp('created_at',{ useTz: true })
             .notNullable()
             .defaultTo(knex.fn.now())
     tweets.integer('user_id')

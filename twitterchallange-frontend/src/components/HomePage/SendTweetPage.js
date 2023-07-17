@@ -23,7 +23,7 @@ function SendTweetPage() {
     defaultValues:{
       user_id:loginData.id,
       parent_id:null,
-      tweet :""
+      tweet :"",
     }
   })
   
@@ -32,14 +32,15 @@ function SendTweetPage() {
     sendTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data})
     setHomePageCount(true);
     navigate('/home')
-    console.log('mainSubmit',data)
+    console.log('data',data)
+   
   }
 
 
   return (
     <section id='sendTweetMainContainer'>
       <form id='sendTweetForm' onSubmit={handleSubmit(loginHandleSubmit)}>
-          <label id="sendTweetLabel">Tweet Gonderimi...</label>
+          <label id="sendTweetLabel">Tweet Gonder...</label>
           <textarea
           id='sendTweetInput'
           data-cy="loginDataName"
@@ -48,7 +49,10 @@ function SendTweetPage() {
           maxLength="128"
           {...register("tweet", { required: "Lütfen kullanıcı adınızı giriniz" })}
           />
-        <button data-cy="sendTweetSbmtBtn"type="submit">Tweeti Gönder</button>
+          <div id='sendTweetButtonWrapper'>
+            <button data-cy="sendTweetSbmtBtn"type="submit">Tweeti Gönder</button>
+          </div>
+        
       </form>
     </section>
   )

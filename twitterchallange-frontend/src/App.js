@@ -9,7 +9,6 @@ import EntryPage from './Pages/EntryPage';
 import PrivateRoute from './context/PrivateRoute'
 import EntryPageProvider from './context/EntryPageNavContext';
 import HomePageSearchPage from './components/HomePage/HomePageSearchPage';
-import SendTweetPage from './components/HomePage/SendTweetPage';
 import HomePageProvider from './context/HomePageNavContext';
 import UserTweetPage from './Pages/UserTweetPage';
 import SingleTweet from './components/UserTweetsPage/SingleTweet';
@@ -42,7 +41,6 @@ function App() {
             }
           >
            <Route path="b" element={<HomePageSearchPage/>}/>
-           <Route path="c" element={<SendTweetPage/>}/>
           </Route>
           <Route path="/:userid" element={
             <PrivateRoute>

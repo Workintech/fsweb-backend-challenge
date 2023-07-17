@@ -37,7 +37,7 @@ router.get('/:id', async (req,res,next)=>{
 
 router.post('/newtweet', async (req,res,next)=>{
   try {
-    const{user_id,tweet, parent_id}=req.body;
+    const{user_id,tweet, parent_id }=req.body;
     const insertTweetData ={
       user_id : user_id,
       parent_id:parent_id,

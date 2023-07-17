@@ -17,6 +17,7 @@ const allTweetReplies = await tweetModel.getTweetsChild();
           tweet:allTweetsItem.tweet,
           name:allTweetsItem.name,
           userName:allTweetsItem.userName,
+          created_at:allTweetsItem.created_at,
           replies:[]
         }
         newTweet.replies.push(...tweetReplies)

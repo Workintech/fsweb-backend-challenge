@@ -1,11 +1,15 @@
 //Outsource JS library
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import moment from 'moment-timezone'
+
 
 
 
 function TweetCard({tweet}) {
   const navigate = useNavigate()
+
+
   return (
     <section id='tweetCardContainer' key={tweet.tweet_id} onClick={()=>{navigate('/'+tweet.userName+'/'+tweet.tweet_id)}} >
       <div id='tweetCardImg'><i className="fa-solid fa-user fa-xl"></i></div>
@@ -14,6 +18,7 @@ function TweetCard({tweet}) {
           <h3 id="tweetContainerTopName">{tweet.name}</h3>
           <h3 id="tweetContainerTopUserName">@{tweet.userName}</h3>
           <div id='tweetContainerTopIconWrapper'>
+            <p id='tweetContainerTopTime'>{moment(tweet.created_at).fromNow()}</p>
             <button id='tweetContainerTopIcon'><i id='tweetContainerIcons' className="fa-solid fa-ellipsis fa-xl"></i></button>
           </div>
         </div>
