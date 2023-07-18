@@ -15,7 +15,6 @@ import SingleTweetPage from './components/UserTweetsPage/SingleTweetPage';
 import UserTweetsList from './components/UserTweetsPage/UserTweetsList'
 
 
-
 //CSS Imports
 import './scss/style.css'
 
@@ -34,10 +33,10 @@ function App() {
     
           <Route path="/home" 
             element={
-              <PrivateRoute>
-                <HomePageProvider>
-                  <HomePage/>
-                </HomePageProvider>
+              <PrivateRoute>  
+                  <HomePageProvider>
+                    <HomePage/>
+                  </HomePageProvider>
               </PrivateRoute>
             }
           >
@@ -45,7 +44,7 @@ function App() {
           </Route>
           <Route path="/:userName" element={
             <PrivateRoute>
-              <UserTweetPage/>
+                  <UserTweetPage/>
             </PrivateRoute>
           }>
           <Route path="t" element={<UserTweetsList/>}/>

@@ -7,12 +7,15 @@ import moment from 'moment-timezone'
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 import { AuthContext } from '../../context/AuthContext';
 
+
 function TweetCard({tweet}) {
   const navigate = useNavigate();
   const {loginData} = useContext(AuthContext);
-  const [like,setLike]=useState(
-   tweet.likes.find(item=>item.user_id===loginData.id)?true:false
-  )
+  const [like,setLike]=useState(false);
+  useEffect(()=>{
+    setLike(tweet.likes.find(item=>item.user_id===loginData.id)?true:false)
+  },[tweet])
+
 
   const [sendLikes] = useAxios([]);
   const [delLikes] = useAxios([]);

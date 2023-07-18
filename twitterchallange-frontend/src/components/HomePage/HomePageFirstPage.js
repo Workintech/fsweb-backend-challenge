@@ -1,14 +1,14 @@
 //Outsource JS library
-import React,{useEffect} from 'react'
+import React,{useEffect,useContext} from 'react'
 
 //Internal JS
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 import TweetCard from './TweetCard';
 
+
 function HomePageFirstPage() {
 
 const [getTweets, tweets, loading, error] = useAxios([]);
-
 
 useEffect(() => {
   getTweets({ endpoint: "/api/tweets/mainpage", reqType: REQ_TYPES.GET });

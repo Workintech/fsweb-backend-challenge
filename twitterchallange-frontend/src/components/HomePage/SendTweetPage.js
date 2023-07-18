@@ -30,10 +30,7 @@ function SendTweetPage() {
 
   const loginHandleSubmit = (data) => {
     sendTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data})
-    setHomePageCount(true);
-    navigate('/home')
-    console.log('data',data)
-   
+    console.log('data',data) 
   }
 
 
