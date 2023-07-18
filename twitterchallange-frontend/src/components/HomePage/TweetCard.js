@@ -1,14 +1,32 @@
 //Outsource JS library
-import React, { useEffect } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import moment from 'moment-timezone'
 
-
-
+//Internal JS
+import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
+import { AuthContext } from '../../context/AuthContext';
 
 function TweetCard({tweet}) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const {loginData} = useContext(AuthContext);
+  const [like,setLike]=useState(
+   tweet.likes.find(item=>item.user_id===loginData.id)?true:false
+  )
 
+  const [sendLikes] = useAxios([]);
+  const [delLikes] = useAxios([]);
+
+  const tweetLikeSubmit = (data) => {
+    console.log("data for likes",data) 
+    if(!like){
+      sendLikes({endpoint:"/api/likes/like",reqType:REQ_TYPES.POST,payload:data})
+      setLike(true);
+    }else if(like){
+      delLikes({endpoint:"/api/likes/likes",reqType:REQ_TYPES.POST,payload:data})
+      setLike(false);
+    }
+  }
 
   return (
     <section id='tweetCardContainer' key={tweet.tweet_id} onClick={()=>{navigate('/'+tweet.userName+'/'+tweet.tweet_id)}} >
@@ -31,9 +49,10 @@ function TweetCard({tweet}) {
             <div id='tweetContainerBottomIcons'>
               <button id='tweetContainerRetweetIcon'><i id='tweetContainerIcons' className="fa-solid fa-retweet fa-xl"></i></button>
             </div>
-            <div id='tweetContainerBottomIcons'>
-              <button id='tweetContainerLikeIcon'><i id='tweetContainerIcons' className="fa-solid fa-heart fa-xl"></i></button>
-            </div> 
+            <button id={like===false?'tweetContainerBottomLikeIcons_Wrapper':'tweetContainerBottomLikeIcons_Wrapper_Liked'} onClick={(e)=>{e.stopPropagation();tweetLikeSubmit({user_id:loginData.id,tweet_id:tweet.tweet_id})}}>
+              <div id='tweetContainerLikeIcon'><i id='tweetContainerIcons' className="fa-solid fa-heart fa-xl"></i></div>
+              <p id='tweetContainerLikeCountText'>{tweet.likes.length===0?'':tweet.likes.length}</p>
+            </button> 
             <div id='tweetContainerBottomIcons'>
               <button id='tweetContainerCountIcon'><i id='tweetContainerIcons' className="fa-solid fa-chart-simple fa-xl"></i></button>
             </div> 

@@ -6,7 +6,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import HomePageFirstPage from '../components/HomePage/HomePageFirstPage'
 import { HomePageNavContext } from '../context/HomePageNavContext';
 import { AuthContext } from '../context/AuthContext';
-import HomePageSearchInput from '../components/HomePage/HomePageSearchInput';
+//import HomePageSearchInput from '../components/HomePage/HomePageSearchInput';
 import SendTweetPage from '../components/HomePage/SendTweetPage'
 
 

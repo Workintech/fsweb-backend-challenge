@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 //Internal JS
 import SingleTweet from './SingleTweet'
-import SingleTweetChildTweets from './SingleTweetChildTweets'
+import TweetCard from '../HomePage/TweetCard';
 import useAxios,{REQ_TYPES} from '../../endpoints/UseAxios'
 import SendChildTweet from './SendChildTweet';
 
@@ -26,7 +26,7 @@ function SingleTweetPage() {
     <SingleTweet/>
     <SendChildTweet/>
     <div id="SingleTweetChildTweetsWrapper">
-    {childTweetById.map((tweetitem,i)=>(<SingleTweetChildTweets
+    {childTweetById.map((tweetitem,i)=>(<TweetCard
         tweet={tweetitem}
         key={i}
         />

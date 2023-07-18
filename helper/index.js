@@ -1,8 +1,10 @@
 const tweetModel =require('../api/tweets/tweets-model')
+const likeModel = require('../api/likesFollowers/likesFollwers-model')
 
 const formatTweets = async (rawOrders)=>{
 
 const allTweetReplies = await tweetModel.getTweetsChild();
+const allTweetLikes = await likeModel.getAllTweetLikesGrouping();
   
 
   const allTweetsData = rawOrders.reduce((acc,allTweetsItem)=>{
@@ -10,6 +12,14 @@ const allTweetReplies = await tweetModel.getTweetsChild();
     const registeredTweet = acc.find(tweet=>tweet.tweet_id ===allTweetsItem.tweet_id)  
     //NewModel
     let tweetReplies = allTweetReplies.filter(filterItem => filterItem.parentTweet_id=== allTweetsItem.tweet_id);
+    let likes;
+    let likeObject = allTweetLikes.find(tweet=>tweet.tweet_id===allTweetsItem.tweet_id);
+    if(!likeObject){
+      likes=[];
+    }else{
+      likes=likeObject.likes
+    }
+    
 
     if(!registeredTweet){
         const newTweet ={
@@ -17,6 +27,7 @@ const allTweetReplies = await tweetModel.getTweetsChild();
           tweet:allTweetsItem.tweet,
           name:allTweetsItem.name,
           userName:allTweetsItem.userName,
+          likes:likes,
           created_at:allTweetsItem.created_at,
           replies:[]
         }

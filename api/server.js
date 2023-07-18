@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const authRouter = require('./auth/auth-router')
 const userRouter = require('./user/users-routers')
 const tweetRouter =require('./tweets/tweets-routers')
+const likeRouter = require('./likesFollowers/likesFollowers-routers')
 
 
 //Middlewares
@@ -28,6 +29,7 @@ server.use(cors(corsOptions))
 server.use('/api/auth',authRouter)
 server.use('/api/users',userRouter)
 server.use('/api/tweets',tweetRouter)
+server.use('/api/likes',likeRouter)
 
 
 //4. error middleware
