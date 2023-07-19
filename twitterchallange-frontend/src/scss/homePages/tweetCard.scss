@@ -1,3 +1,4 @@
+@import 'variables';
 
   #tweetCardContainer{
     border :0.1rem solid $bordercolors;
@@ -39,6 +40,7 @@
         padding-left: 0.3rem;
       }
       #tweetContainerTopIconWrapper{
+        position:relative;
         flex-grow: 1;
         display: flex;
         justify-content: end;
@@ -60,6 +62,37 @@
             #tweetContainerIcons{
               @include tweetContainerIcons
             }
+        }
+        #dropDownNav{
+          position:absolute;   
+          width:10rem;
+          background-color: white;
+          border-radius: 1rem;
+          box-shadow: 2px 2px #888888;
+          overflow: hidden;
+        }
+        button{
+          width:100%;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          font-family: $lineText;
+          color:$logoutBorderColor;
+          font-size: 1rem;
+          border: none;
+          list-style-type: none;
+          font-weight:bolder;   
+          background-color: transparent;  
+          cursor: pointer;  
+          &:hover{
+            background-color:$lightGrayBgColor;
+          }
+          &:disabled,
+            button[disabled] {
+  
+                color: $darkHeaders;   
+                cursor: not-allowed;
+            }
+          
         }
       }
     }

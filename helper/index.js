@@ -27,6 +27,7 @@ const allTweetLikes = await likeModel.getAllTweetLikesGrouping();
           tweet:allTweetsItem.tweet,
           name:allTweetsItem.name,
           userName:allTweetsItem.userName,
+          user_id:allTweetsItem.user_id,
           likes:likes,
           created_at:allTweetsItem.created_at,
           replies:[]

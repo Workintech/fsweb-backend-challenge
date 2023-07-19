@@ -4,7 +4,6 @@
  */
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex('tweets').truncate()
   await knex('tweets').insert([
     {tweet:"Merhabalar Tweeter ilk denememi yaziyorum.",created_at:"2023-07-11 09:00:00",user_id:1},
     {tweet:"Benimde ilk tweetim. Bugun hava çok sıcak.",created_at:"2023-07-11 09:01:00",user_id:2},

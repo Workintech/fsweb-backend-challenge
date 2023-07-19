@@ -7,7 +7,8 @@ import HomePageFirstPage from '../components/HomePage/HomePageFirstPage'
 import { HomePageNavContext } from '../context/HomePageNavContext';
 import { AuthContext } from '../context/AuthContext';
 //import HomePageSearchInput from '../components/HomePage/HomePageSearchInput';
-import SendTweetPage from '../components/HomePage/SendTweetPage'
+import SendTweetPage from '../components/HomePage/SendTweetPage';
+import { DropDownContext } from '../context/DropDownButton';
 
 
 
@@ -15,6 +16,8 @@ function HomePage() {
   const navigate= useNavigate();
   const {homePageCount,setHomePageCount} = useContext(HomePageNavContext)
   const {loginData,logOut} = useContext(AuthContext);
+  const{dropDown,setDropDown}=useContext(DropDownContext);
+  
   const [userWelcome,setUserWelcome]=useState('Welcome '+ loginData.name)
  useEffect(()=>{
   setTimeout(() => {
@@ -24,9 +27,9 @@ function HomePage() {
  
     
   return (
-      <section id='homePageContainer'>
+      <section id='homePageContainer'onClick={()=>{setDropDown(false)}}>
           <section id="homePageleftNavBar">
-              <h2>{userWelcome}</h2>
+              <h2  data-cy="homePageWelcome">{userWelcome}</h2>
               <nav id="homePageleftNavBarMainBtns">
                 <button id='homePageleftNavBarBtn' onClick={()=>{navigate("/home");setHomePageCount(true)}}>Home Page</button>
                 <button id='homePageleftNavBarBtn'onClick={()=>{navigate("/home/b");setHomePageCount(false)}}>Profile</button>

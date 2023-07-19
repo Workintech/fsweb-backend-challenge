@@ -15,8 +15,8 @@ exports.up = function(knex) {
             .notNullable()
             .references('user_id')
             .inTable('users')
-            .onUpdate('RESTRICT')
-            .onDelete('RESTRICT')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE')
     })
 };
 

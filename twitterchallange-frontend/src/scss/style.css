@@ -281,6 +281,7 @@ table {
             font-size: 1rem;
             padding-left: 0.3rem; }
           #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
+            position: relative;
             flex-grow: 1;
             display: flex;
             justify-content: end;
@@ -306,6 +307,31 @@ table {
                 position: absolute;
                 top: 1.3rem;
                 left: 0.6rem; }
+            #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #dropDownNav {
+              position: absolute;
+              width: 10rem;
+              background-color: white;
+              border-radius: 1rem;
+              box-shadow: 2px 2px #888888;
+              overflow: hidden; }
+            #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button {
+              width: 100%;
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+              font-family: "Plus Jakarta Sans", cursive;
+              color: #f87171;
+              font-size: 1rem;
+              border: none;
+              list-style-type: none;
+              font-weight: bolder;
+              background-color: transparent;
+              cursor: pointer; }
+              #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button:hover {
+                background-color: #e2e8f0; }
+              #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button:disabled,
+              #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button button[disabled] {
+                color: #AEBCCF;
+                cursor: not-allowed; }
         #homePageContainer #tweetCardsMainContainer #tweetCardContainer #tweetContainer #tweetContainerMid {
           display: flex;
           padding-right: 2rem;
@@ -864,6 +890,7 @@ table {
               font-size: 1rem;
               padding-left: 0.3rem; }
             #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper {
+              position: relative;
               flex-grow: 1;
               display: flex;
               justify-content: end;
@@ -889,6 +916,31 @@ table {
                   position: absolute;
                   top: 1.3rem;
                   left: 0.6rem; }
+              #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper #dropDownNav {
+                position: absolute;
+                width: 10rem;
+                background-color: white;
+                border-radius: 1rem;
+                box-shadow: 2px 2px #888888;
+                overflow: hidden; }
+              #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button {
+                width: 100%;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                font-family: "Plus Jakarta Sans", cursive;
+                color: #f87171;
+                font-size: 1rem;
+                border: none;
+                list-style-type: none;
+                font-weight: bolder;
+                background-color: transparent;
+                cursor: pointer; }
+                #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button:hover {
+                  background-color: #e2e8f0; }
+                #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button:disabled,
+                #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerTop #tweetContainerTopIconWrapper button button[disabled] {
+                  color: #AEBCCF;
+                  cursor: not-allowed; }
           #homePageContainer #userPageMainSection #SingleTweetChildTweetsWrapper #tweetCardContainer #tweetContainer #tweetContainerMid {
             display: flex;
             padding-right: 2rem;

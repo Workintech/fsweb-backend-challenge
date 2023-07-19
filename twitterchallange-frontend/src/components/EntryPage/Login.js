@@ -45,8 +45,8 @@ useEffect(()=>{
         <input
         data-cy="loginDataName"
         type="text"
-        placeholder="Name"
-        {...register("loginDataName", { required: "Please enter your name" })}
+        placeholder="Username"
+        {...register("loginDataName", { required: "Please enter your username" })}
         />
         {errors?.loginDataName && <p id="formError">{errors.loginDataName.message}</p>}
         <label htmlFor="title "> Password</label>

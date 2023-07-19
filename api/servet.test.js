@@ -40,22 +40,10 @@ describe('REGISTER USER',()=>{
     //ACT
     const res = await request(server).post('/api/auth/register').send(newUser);
     //ASSERT
-    expect(res.body).toHaveProperty('message','Kullanıcı adı kullanılmaktadır');
+    expect(res.body).toHaveProperty('message','Username is already taken');
   })
-  test('[3] Cannot Register if userName Exists ', async()=>{
-    //ARRANGE
-    const newUser={
-      name:'Serkan',
-      password:'12345678',
-      userEmail:'serkan123@gmail.com',
-      userName:'Developer1234'
-    }
-    //ACT
-    const res = await request(server).post('/api/auth/register').send(newUser);
-    //ASSERT
-    expect(res.body).toHaveProperty('message','Kullanıcı adı kullanılmaktadır');
-  })
-  test('[4] Cannot Register if email Exists ', async()=>{
+
+  test('[3] Cannot Register if email Exists ', async()=>{
     //ARRANGE
     const newUser={
       name:'Serkan',
@@ -66,9 +54,9 @@ describe('REGISTER USER',()=>{
     //ACT
     const res = await request(server).post('/api/auth/register').send(newUser);
     //ASSERT
-    expect(res.body).toHaveProperty('message','Email kullanılmaktadır');
+    expect(res.body).toHaveProperty('message','E-mail is already taken');
   })
-  test('[5] Cannot Register if there is missing data ', async()=>{
+  test('[4] Cannot Register if there is missing data ', async()=>{
     //ARRANGE
     const newUser={
       name:'',
@@ -79,25 +67,6 @@ describe('REGISTER USER',()=>{
     //ACT
     const res = await request(server).post('/api/auth/register').send(newUser);
     //ASSERT
-    expect(res.body).toHaveProperty('message','Lütfen tüm kısımları doldurunuz.');
+    expect(res.body).toHaveProperty('message','Please fillout all inputs');
   })
-})
-describe('LOGIN USER',()=>{ 
-  test('[6] Cannot Register if there is missing data ', async()=>{
-    //ARRANGE
-    const newUser={
-      name:'Serkan',
-      password:'12345678',
-      userEmail:'serkan@gmail.com',
-      userName:'Developer1234'
-    }
-    //ACT
-    const res = await request(server).post('/api/auth/register').send(newUser);
-    //ASSERT
-    expect(res.body).toHaveProperty('message','Lütfen tüm kısımları doldurunuz.');
-  })
-
-
-
-
 })

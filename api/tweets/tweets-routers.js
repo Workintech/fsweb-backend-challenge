@@ -34,6 +34,16 @@ router.get('/:id', async (req,res,next)=>{
     next()
   }
 })
+
+router.delete('/:id', async (req,res,next)=>{
+  try {
+    await tweetsModel.deleteTweet(req.params.id)
+    res.json({message: `Tweet by id ${req.params.id} deleted`});
+  } catch (error) {
+    next()
+  }
+
+})
 router.get('/mainpage/:id', async (req,res,next)=>{
   try {
     const allTweets = await tweetsModel.getAllTweetsParentByUser(req.params.id);

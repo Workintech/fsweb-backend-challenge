@@ -6,16 +6,24 @@ import moment from 'moment-timezone'
 //Internal JS
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 import { AuthContext } from '../../context/AuthContext';
+import DropDownMenu from './DropDownMenu';
+import { DropDownContext } from '../../context/DropDownButton';
 
 
 function TweetCard({tweet}) {
   const navigate = useNavigate();
   const {loginData} = useContext(AuthContext);
   const [like,setLike]=useState(false);
+  const{dropDown,setDropDown}=useContext(DropDownContext);
+  const[dropDownUnique,setDropDownUnique]=useState(false);
+
+  useEffect(()=>{
+    if(dropDown===false) return setDropDownUnique(false);
+  },[dropDown])
+
   useEffect(()=>{
     setLike(tweet.likes.find(item=>item.user_id===loginData.id)?true:false)
   },[tweet])
-
 
   const [sendLikes] = useAxios([]);
   const [delLikes] = useAxios([]);
@@ -40,7 +48,8 @@ function TweetCard({tweet}) {
           <h3 id="tweetContainerTopUserName">@{tweet.userName}</h3>
           <div id='tweetContainerTopIconWrapper'>
             <p id='tweetContainerTopTime'>{moment(tweet.created_at).fromNow()}</p>
-            <button id='tweetContainerTopIcon'><i id='tweetContainerIcons' className="fa-solid fa-ellipsis fa-xl"></i></button>
+            <button id='tweetContainerTopIcon' onClick={(e)=>{e.stopPropagation();setDropDown(true);setDropDownUnique(!dropDownUnique)}}><i id='tweetContainerIcons' className="fa-solid fa-ellipsis fa-xl"></i></button>
+             {(dropDown && dropDownUnique)&&<DropDownMenu tweet={tweet} setDropDownUnique={setDropDownUnique}/>}
           </div>
         </div>
         <div id='tweetContainerMid'> {tweet.tweet} </div>
