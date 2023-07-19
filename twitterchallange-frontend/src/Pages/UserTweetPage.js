@@ -4,13 +4,14 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 
 //Internal JS
-import SingleTweetPage from '../components/UserTweetsPage/SingleTweetPage';
+import { AuthContext } from '../context/AuthContext';
 
 
 
 
 function HomePage() {
   const navigate= useNavigate();
+  const {logOut} = useContext(AuthContext);
   
    
  
@@ -25,7 +26,7 @@ function HomePage() {
               </nav>
               <nav id="homePageleftNavBarPersonalBtns">
                 <button id='homePageleftNavBarBtn'>Settings</button>
-                <button id='logoutBtn'  onClick={()=>{}}>Logout</button>
+                <button id='logoutBtn'  onClick={()=>{logOut();navigate("/")}}>Logout</button>
               </nav>
           </section>
           <section id="userPageMainSection">

@@ -11,7 +11,7 @@ exports.up = function(knex) {
     users.date('dateJoined').notNullable()
     users.string('userEmail',100).notNullable().unique()
     users.integer('role_id')
-        .defaultTo(3)
+        .defaultTo(2)
         .unsigned()
         .notNullable()
         .references('role_id')

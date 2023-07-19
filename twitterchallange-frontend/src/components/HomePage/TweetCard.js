@@ -40,7 +40,7 @@ function TweetCard({tweet}) {
   }
 
   return (
-    <section id='tweetCardContainer' key={tweet.tweet_id} onClick={()=>{navigate('/'+tweet.userName+'/'+tweet.tweet_id)}} >
+    <section id='tweetCardContainer' key={tweet.tweet_id} onClick={()=>{navigate('/'+tweet.userName+'/'+tweet.tweet_id);window.location.reload()}} >
       <div id='tweetCardImg'><i className="fa-solid fa-user fa-xl"></i></div>
       <div id='tweetContainer'>
         <div id='tweetContainerTop'>
