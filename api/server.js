@@ -3,7 +3,7 @@ const express = require('express');
 const server = express();
 const cors = require('cors');
 const helmet = require('helmet');
-
+require('dotenv').config();
 const authRouter = require('./auth/auth-router')
 const userRouter = require('./user/users-routers')
 const tweetRouter =require('./tweets/tweets-routers')
