@@ -15,7 +15,7 @@ server.use(helmet());
 server.use(express.json());
 
 var corsOptions = {
-  origin:'https://serkantoramantwitterproject.vercel.app/', 
+  origin:'https://serkantoramantwitterproject.vercel.app', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
