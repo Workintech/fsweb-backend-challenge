@@ -39,6 +39,7 @@ router.post('/login',mwLoginCheckPayload,mwLoginUser,async (req,res,next)=>{
     res.json({
       name:req.userData.name,
       id:req.userData.user_id,
+      roleName:req.userData.roleName,
       token: token
     });
     

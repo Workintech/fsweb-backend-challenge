@@ -1,6 +1,5 @@
 //Imports
 const router = require('express').Router();
-const { checkRole } = require('../Auth/auth-middleware');
 const userModel = require('./users-model');
 
 //Middlewares--
@@ -10,6 +9,15 @@ const userModel = require('./users-model');
 router.get('/', async (req,res,next)=>{
   try {
     const usersDetail = await userModel.getAll();
+    res.json(usersDetail);
+  } catch (error) {
+    next()
+  }
+})
+
+router.get('/:id', async (req,res,next)=>{
+  try {
+    const usersDetail = await userModel.getById(req.params.id);
     res.json(usersDetail);
   } catch (error) {
     next()

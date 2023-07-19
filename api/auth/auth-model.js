@@ -6,7 +6,10 @@ function getById(id){
 }
 
 const findBy = filter =>{
-return db('users').where(filter).first();
+return db('users as u')
+        .leftJoin('roleNames as r','u.role_id','r.role_id')
+        .where(filter)
+        .first();
 }
 
 async function insertUser(account){

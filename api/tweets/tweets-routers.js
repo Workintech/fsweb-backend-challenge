@@ -1,6 +1,8 @@
 //Imports
 const router = require('express').Router();
 const tweetsModel = require('./tweets-model');
+const {mwTweetDeleteAuthority}=require('../user/users-middleware')
+const {mwTweetExistCheck} =require('./tweet-middleware')
 
 //Middlewares--
 
@@ -35,10 +37,10 @@ router.get('/:id', async (req,res,next)=>{
   }
 })
 
-router.delete('/:id', async (req,res,next)=>{
-  try {
-    await tweetsModel.deleteTweet(req.params.id)
-    res.json({message: `Tweet by id ${req.params.id} deleted`});
+router. post('/', mwTweetDeleteAuthority, async (req,res,next)=>{
+  try {   
+    await tweetsModel.deleteTweet(req.idData)
+    res.json({message: `Tweet by id ${req.idData} deleted`});
   } catch (error) {
     next()
   }

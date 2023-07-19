@@ -1,11 +1,19 @@
 const db = require('../../data/dbConfig');
 
-function getAll() {
-  return db('users');
+ function getAll() {
+  const userRawData =  db('users as u')
+                            .leftJoin('roleNames as r','u.role_id','r.role_id')
+                            .select('u.user_id','u.name','u.password','u.userName','u.dateJoined','u.userEmail','r.roleName')
+  return userRawData;
 }
 
 function getById(id) {
-  return db('users').where('id', id).first();
+  const userRawData =  db('users as u')
+                            .leftJoin('roleNames as r','u.role_id','r.role_id')
+                            .select('u.user_id','u.name','u.password','u.userName','u.dateJoined','u.userEmail','r.roleName')
+                            .where('user_id',id)
+                            .first()
+  return userRawData;
 }
 
 function getByFilter(filter) {

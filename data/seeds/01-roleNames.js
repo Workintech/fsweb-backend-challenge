@@ -6,7 +6,6 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('roleNames').insert([
     {roleName:"Admin"},
-    {roleName:"BlueTickedUser"},
     {roleName:"User"},
   ]);
 };
