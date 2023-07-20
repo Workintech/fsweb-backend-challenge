@@ -18,12 +18,13 @@ const {mwRestricted} = require('../api/auth/auth-middleware')
 server.use(helmet());
 server.use(express.json());
 var corsOptions = {
-  origin:"http://localhost:3000", 
+  origin:'https://serkantoramantwitterproject.vercel.app', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 server.use(cors(corsOptions))
 //'https://serkantoramantwitterproject.vercel.app'
+//"http://localhost:3000"
 
 
 
