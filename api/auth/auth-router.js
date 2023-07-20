@@ -49,14 +49,14 @@ router.post('/login',mwLoginCheckPayload,mwLoginUser,async (req,res,next)=>{
 
 })
 
-router.get('/logout', mwRestricted, logout, (req,res,next)=>{
+router.get('/logout', mwRestricted, (req,res,next)=>{
   try {
     res.json({message: 'Successfully loggedout'})
   } catch (error) {
     next(error)
   } 
 })
-
+redis://default:imSOGYap5Az181bkHIdyOgYAZ9acwJMd@redis-11156.c15.us-east-1-2.ec2.cloud.redislabs.com:11156
 
 
 //Exports

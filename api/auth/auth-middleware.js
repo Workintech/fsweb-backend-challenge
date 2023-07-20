@@ -8,10 +8,10 @@ const {JWT_SECRET,HASHCOUNT} =require('../../config')
 const authModel = require('./auth-model')
 
 
-async function connection(){
-  await client.connect();
-}
-connection();
+// async function connection(){
+//   await client.connect();
+// }
+// connection();
 
 //Register
 
@@ -112,8 +112,8 @@ const mwRestricted = async(req,res,next)=>{
 try {
   const token = req.headers.authorization;
   if(token){
-    const tokenValue = await client.get(token);
-    if(tokenValue){
+    // const tokenValue = await client.get(token);
+    // if(tokenValue){
       jwt.verify(token,JWT_SECRET,(err,decodedJWT)=>{
         if(err){
           res.status(401).json({message:"Token is invalid"})
@@ -121,7 +121,7 @@ try {
           req.decodedJWT=decodedJWT
           next()}
       }) 
-    }  
+    // }  
   }else{
     res.status(403).json({message: "Token is required"})
   }
@@ -131,15 +131,15 @@ try {
 }
 //Logout
 
-const logout = async (req,res,next)=> {
-  try {
-      const token = req.headers.authorization;
-      await client.del(token);
-      next();
-  } catch(err) {
-      next(err)
-  }
-}
+// const logout = async (req,res,next)=> {
+//   try {
+//       const token = req.headers.authorization;
+//       await client.del(token);
+//       next();
+//   } catch(err) {
+//       next(err)
+//   }
+// }
 
 
 
@@ -150,5 +150,5 @@ module.exports = {
   mwLoginCheckPayload,
   mwLoginUser,
   mwRestricted,
-  logout
+  //logout
 }
