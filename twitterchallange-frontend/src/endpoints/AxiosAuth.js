@@ -5,7 +5,7 @@ const axiosWithAuth=()=>{
   return axios.create({
     baseURL: "https://serkantoraman-twitterproject.onrender.com",
     headers: {
-      Authorization:JSON.parse(user).token
+      Authorization:user.token
     }
 })
 }
@@ -14,3 +14,4 @@ export default axiosWithAuth;
 
 //"https://serkantoraman-twitterproject.onrender.com"
 //"http://localhost:9000"
+//JSON.parse(user).token
