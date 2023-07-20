@@ -11,9 +11,12 @@ const likeRouter = require('./likesFollowers/likesFollowers-routers')
 
 
 //Middlewares
+//Internal
+const {mwRestricted} = require('../api/auth/auth-middleware')
+
+//External
 server.use(helmet());
 server.use(express.json());
-
 var corsOptions = {
   origin:"http://localhost:3000", 
   credentials:true,            //access-control-allow-credentials:true
@@ -23,15 +26,16 @@ server.use(cors(corsOptions))
 //'https://serkantoramantwitterproject.vercel.app'
 
 
+
 //Routers
 //Smoke test
 // server.get('/',(req,res)=>{
 //   res.json('smoke test successfull')
 // })
 server.use('/api/auth',authRouter)
-server.use('/api/users',userRouter)
-server.use('/api/tweets',tweetRouter)
-server.use('/api/likes',likeRouter)
+server.use('/api/users',mwRestricted,userRouter)
+server.use('/api/tweets',mwRestricted,tweetRouter)
+server.use('/api/likes',mwRestricted,likeRouter)
 
 
 //4. error middleware

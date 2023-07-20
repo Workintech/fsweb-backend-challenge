@@ -97,6 +97,27 @@ const mwLoginUser = async(req,res,next) =>{
   }
 }
 
+//Restricted
+
+const mwRestricted = async(req,res,next)=>{
+try {
+  const token = req.headers.authorization;
+  if(token){
+    jwt.verify(token,JWT_SECRET,(err,decodedJWT)=>{
+      if(err){
+        res.status(401).json({message:"Token is invalid"})
+      }else{
+        req.decodedJWT=decodedJWT
+        next()}
+    })
+  }else{
+    res.status(401).json({message: "Token is required"})
+  }
+
+} catch (error) {
+  next(error)
+}
+}
 
 
 
@@ -104,5 +125,6 @@ module.exports = {
   mwRegisterCheckPaylodad,
   mwRegisterUser,
   mwLoginCheckPayload,
-  mwLoginUser
+  mwLoginUser,
+  mwRestricted
 }
