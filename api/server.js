@@ -24,6 +24,7 @@ var corsOptions = {
 }
 server.use(cors(corsOptions))
 //'https://serkantoramantwitterproject.vercel.app'
+
 //"http://localhost:3000"
 
 
