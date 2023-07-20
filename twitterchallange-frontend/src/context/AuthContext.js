@@ -17,7 +17,7 @@ const AuthContextProvider = ({ children }) => {
    // this Context goes to LoginForm 
    const loginHandleSubmitContext = (user)=>{
      //axiosWithAuth creates the baseURL
-      console.log("user",user)
+      // console.log("user",user)
        axiosWithAuth()
        .post("/api/auth/login",user)
        .then((res) => {
@@ -27,6 +27,7 @@ const AuthContextProvider = ({ children }) => {
       setErrorResponse(err.response.data.message)
       );
     }
+  
 
     const logOut = () => {
       //console.log("logout");
