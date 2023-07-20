@@ -30,8 +30,14 @@ const AuthContextProvider = ({ children }) => {
   
 
     const logOut = () => {
-      //console.log("logout");
-      setLoginData({});
+      axiosWithAuth()
+        .get("/api/auth/logout")
+        .then(()=>{
+          setLoginData({});
+        }).catch((err) => 
+      setErrorResponse(err.response.data.message)
+      );
+    
     };
     
     return (

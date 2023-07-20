@@ -1,8 +1,17 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const {JWT_SECRET,HASHCOUNT} =require('../../config')
+const redis = require('redis');
+const client = redis.createClient();
 
+
+const {JWT_SECRET,HASHCOUNT} =require('../../config')
 const authModel = require('./auth-model')
+
+
+async function connection(){
+  await client.connect();
+}
+connection();
 
 //Register
 
@@ -103,21 +112,35 @@ const mwRestricted = async(req,res,next)=>{
 try {
   const token = req.headers.authorization;
   if(token){
-    jwt.verify(token,JWT_SECRET,(err,decodedJWT)=>{
-      if(err){
-        res.status(401).json({message:"Token is invalid"})
-      }else{
-        req.decodedJWT=decodedJWT
-        next()}
-    })
+    const tokenValue = await client.get(token);
+    if(tokenValue){
+      jwt.verify(token,JWT_SECRET,(err,decodedJWT)=>{
+        if(err){
+          res.status(401).json({message:"Token is invalid"})
+        }else{
+          req.decodedJWT=decodedJWT
+          next()}
+      }) 
+    }  
   }else{
-    res.status(401).json({message: "Token is required"})
+    res.status(403).json({message: "Token is required"})
   }
-
 } catch (error) {
   next(error)
 }
 }
+//Logout
+
+const logout = async (req,res,next)=> {
+  try {
+      const token = req.headers.authorization;
+      await client.del(token);
+      next();
+  } catch(err) {
+      next(err)
+  }
+}
+
 
 
 
@@ -126,5 +149,6 @@ module.exports = {
   mwRegisterUser,
   mwLoginCheckPayload,
   mwLoginUser,
-  mwRestricted
+  mwRestricted,
+  logout
 }

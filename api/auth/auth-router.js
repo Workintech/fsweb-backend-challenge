@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 
 const {JWT_SECRET,HASHCOUNT} =require('../../config/index');
-const { mwRegisterCheckPaylodad, mwRegisterUser,mwLoginCheckPayload,mwLoginUser } = require('./auth-middleware');
+const { mwRegisterCheckPaylodad, mwRegisterUser,mwLoginCheckPayload,mwLoginUser,mwRestricted,logout } = require('./auth-middleware');
 const authModel = require('./auth-model')
 const tokenHelper = require('../../helper/token-helper')
 
@@ -32,10 +32,10 @@ router.post('/register',mwRegisterCheckPaylodad,mwRegisterUser, async(req,res,ne
 router.post('/login',mwLoginCheckPayload,mwLoginUser,async (req,res,next)=>{
   try {
     const tokenPayload ={
-      loginDataName: req.userData.loginDataName,
+      loginDataName: req.userData.userName,
       password: req.userData.password,
     }
-    const token = tokenHelper.generateToken(tokenPayload);
+    const token = await tokenHelper.generateToken(tokenPayload);
     res.json({
       name:req.userData.name,
       id:req.userData.user_id,
@@ -47,6 +47,14 @@ router.post('/login',mwLoginCheckPayload,mwLoginUser,async (req,res,next)=>{
     next(error)
   }
 
+})
+
+router.get('/logout', mwRestricted, logout, (req,res,next)=>{
+  try {
+    res.json({message: 'Successfully loggedout'})
+  } catch (error) {
+    next(error)
+  } 
 })
 
 
