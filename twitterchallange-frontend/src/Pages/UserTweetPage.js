@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 //Internal JS
 import { AuthContext } from '../context/AuthContext';
+import { DropDownContext } from '../context/DropDownButton';
 
 
 
@@ -12,12 +13,12 @@ import { AuthContext } from '../context/AuthContext';
 function HomePage() {
   const navigate= useNavigate();
   const {logOut} = useContext(AuthContext);
-  
+  const{dropDown,setDropDown}=useContext(DropDownContext);
    
  
     
   return (
-      <section id='homePageContainer'>
+      <section id='homePageContainer' onClick={()=>{setDropDown(false)}}>
           <section id="homePageleftNavBar">
               {/* <h2>{userWelcome}</h2> */}
               <nav id="homePageleftNavBarMainBtns">

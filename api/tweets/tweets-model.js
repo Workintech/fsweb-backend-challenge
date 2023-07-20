@@ -39,7 +39,7 @@ async function getAllTweetsParent(){
 async function getAllChildTweetsbyParentID(id){
   const tweetRawData = await db('tweets as t')
                                 .join('users as u','t.user_id','u.user_id')
-                                .select('u.name','u.userName','t.tweet_id','t.tweet','t.created_at')
+                                .select('u.name','u.userName','u.user_id','t.tweet_id','t.tweet','t.created_at')
                                 .where('t.parent_id',id) 
                                 .orderBy('t.created_at','desc')
     

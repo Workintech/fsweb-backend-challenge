@@ -3,7 +3,7 @@ import axios from 'axios';
 const axiosWithAuth=()=>{
   const token = localStorage.getItem('token');
   return axios.create({
-    baseURL: "https://serkantoraman-twitterproject.onrender.com",
+    baseURL: "http://localhost:9000",
     headers: {
       Authorization: token
     }
@@ -11,3 +11,5 @@ const axiosWithAuth=()=>{
 }
 
 export default axiosWithAuth;
+
+//"https://serkantoraman-twitterproject.onrender.com"
