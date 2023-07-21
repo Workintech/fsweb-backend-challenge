@@ -11,7 +11,7 @@ function EntryPage() {
 
   const {entryPageNum} = useContext(EntryPageNavContext)
 
-  console.log("entryPageNum",entryPageNum)
+  //console.log("entryPageNum",entryPageNum)
 
   return (
     <>

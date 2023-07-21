@@ -1,23 +1,23 @@
 //Outsource JS library
 import React,{useContext, useEffect} from 'react';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 //Internal JS
 import { AuthContext } from '../../context/AuthContext';
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
-import { HomePageNavContext } from '../../context/HomePageNavContext';
+import { setHomePageResetIncrease } from '../../store/actions/tweetAction';
+
 
 function SendTweetPage() {
-
-  const navigate =useNavigate();
+  const dispatch = useDispatch();
   const {loginData} = useContext(AuthContext);
-  const [sendTweets, tweets, loading, error] = useAxios([]);
-  const {setHomePageCount} = useContext(HomePageNavContext)
+  const [sendTweets, sentTweets, loading, error] = useAxios([]);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({mode:'onChange',
     defaultValues:{
@@ -27,11 +27,13 @@ function SendTweetPage() {
     }
   })
   
-
-  const loginHandleSubmit = (data) => {
-    sendTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data})
-    console.log('data',data) 
+  const loginHandleSubmit = async (data) => {
+    await sendTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data});
+    dispatch(setHomePageResetIncrease())
+    reset();
   }
+
+
 
 
   return (

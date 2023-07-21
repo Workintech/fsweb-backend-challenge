@@ -1,2 +1,12 @@
-//Internal JS
-import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
+//Action Crators
+
+export const homePageResetIncrease = "RESET_SCREEN_INCREASE"
+export const homePageResetDecrease = "RESET_SCREEN_DECREASE"
+
+export const setHomePageResetIncrease = ()=>({
+    type :homePageResetIncrease,
+})
+export const setHomePageResetDecrease = ()=>({
+    type :homePageResetDecrease,
+})
+ 

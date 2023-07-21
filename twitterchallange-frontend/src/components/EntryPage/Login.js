@@ -41,7 +41,7 @@ useEffect(()=>{
       }}><i className="fa-sharp fa-regular fa-circle-xmark fa-4x"></i></button>
       <form id='entryPageForm' onSubmit={handleSubmit(loginHandleSubmit)} >
         <h2 dt-cy="loginFormH2">Login</h2>
-        <label htmlFor="title "> Name</label>
+        <label htmlFor="title "> Username</label>
         <input
         data-cy="loginDataName"
         type="text"

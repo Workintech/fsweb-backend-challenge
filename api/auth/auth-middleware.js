@@ -1,11 +1,20 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const redis = require('redis');
-// const client = redis.createClient();
 
 
 const {JWT_SECRET,HASHCOUNT} =require('../../config')
 const authModel = require('./auth-model')
+
+
+// const { createClient }=require('redis');
+
+// const client = createClient({
+//     password: 'imSOGYap5Az181bkHIdyOgYAZ9acwJMd',
+//     socket: {
+//         host: 'redis-11156.c15.us-east-1-2.ec2.cloud.redislabs.com',
+//         port: 11156
+//     }
+// });
 
 
 // async function connection(){

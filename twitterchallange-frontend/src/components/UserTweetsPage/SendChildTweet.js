@@ -2,13 +2,17 @@
 import React,{useContext,useEffect} from 'react';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 //Outsource JS Library
 import { AuthContext } from '../../context/AuthContext';
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
+import { setHomePageResetIncrease } from '../../store/actions/tweetAction';
+
 
 
 function SendChildTweet() {
+    const dispatch = useDispatch();
     const {tweetid,userName} = useParams();
     const {loginData} = useContext(AuthContext);
     const [sendChildTweets, childTweets, loading, error] = useAxios([]);
@@ -16,6 +20,7 @@ function SendChildTweet() {
     const {
       register,
       handleSubmit,
+      reset,
       formState: { errors },
     } = useForm({mode:'onChange',
       defaultValues:{
@@ -26,10 +31,10 @@ function SendChildTweet() {
     })
    
 
-    const tweetHandleSubmit = (data) => {
-      console.log("tweetid",tweetid)
-      sendChildTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data})
-      console.log("data",data) 
+    const tweetHandleSubmit = async (data) => {
+      await sendChildTweets({endpoint:"/api/tweets/newtweet",reqType:REQ_TYPES.POST,payload:data});
+      dispatch(setHomePageResetIncrease())
+      reset();  
     }
 
     

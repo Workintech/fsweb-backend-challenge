@@ -1,6 +1,7 @@
 //Outsource JS library
 import React,{useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 //Internal JS
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
@@ -11,11 +12,13 @@ function UserTweetsList() {
 const {tweetid,userName} = useParams();
 
 const [getTweets, tweets, loading, error] = useAxios([]);
+const button =useSelector((store) => store.tweetReducer.buttonCount);
 
 
 useEffect(() => {
   getTweets({ endpoint: "/api/tweets/mainpage/"+userName, reqType: REQ_TYPES.GET });
-}, [tweets]);
+  //console.log('buttonsingke',button)
+}, [button]);
 
 
 

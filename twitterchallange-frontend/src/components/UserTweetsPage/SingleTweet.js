@@ -15,7 +15,7 @@ function SingleTweet() {
   const [getTweetById, tweetById, loading, error] = useAxios([]);
   useEffect(() => {
     getTweetById({ endpoint: "/api/tweets/"+tweetid, reqType: REQ_TYPES.GET });
-  }, [tweetById]);
+  }, []);
 
   return (
     <section id='tweetCardContainer' key={tweetById.tweet_id} >

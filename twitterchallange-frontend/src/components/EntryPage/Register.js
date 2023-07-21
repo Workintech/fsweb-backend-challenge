@@ -20,7 +20,7 @@ const registerHandleSubmit=(data)=>{
     "https://serkantoraman-twitterproject.onrender.com/api/auth/register",data
   )
   .then((res) => {
-    console.log("Yeni urun kayıt res > ", res.data);  
+    //console.log("Yeni urun kayıt res > ", res.data);  
     setEntryPageNum(1)
   })
   .catch((err)=>{
@@ -50,7 +50,7 @@ const registerHandleSubmit=(data)=>{
         {...register("name", { required: "Please enter your name" })}
         />
         {errors?.name && <p id="formError">{errors.name.message}</p>}
-        <label htmlFor="title "> Kullanıcı Adı</label>
+        <label htmlFor="title "> Username </label>
         <input
         data-cy="registerUserName"
         type="text"

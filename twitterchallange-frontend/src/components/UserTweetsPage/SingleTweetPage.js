@@ -1,6 +1,7 @@
 //Outsource JS Library
 import React,{useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 //Internal JS
 import SingleTweet from './SingleTweet'
@@ -11,15 +12,15 @@ import SendChildTweet from './SendChildTweet';
 
 function SingleTweetPage() {
   const {tweetid} = useParams();
-
+  const button =useSelector((store) => store.tweetReducer.buttonCount);
   const [getChildTweetsById, childTweetById, loading, error] = useAxios([]);
+
   useEffect(() => {
     getChildTweetsById({ endpoint: "/api/tweets/"+tweetid+'/c', reqType: REQ_TYPES.GET });
-  }, [childTweetById]);
+    console.log('buttonsingke',button)
+  }, [button]);
  
-    useEffect(()=>{
-      console.log('useparam',tweetid)
-    },[tweetid])
+
 
   return (
     <>

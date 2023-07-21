@@ -1,24 +1,27 @@
 //External JS
-import React,{useState,useContext,useEffect} from 'react'
+import React,{useContext,useEffect} from 'react';
+import { useDispatch } from "react-redux";
 
 //Internal JS
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 import { AuthContext } from '../../context/AuthContext';
+import { setHomePageResetDecrease } from '../../store/actions/tweetAction';
+
 
 function DropDownMenu({tweet,setDropDownUnique}) {
+  const dispatch = useDispatch();
 
   const [deleteTweets, deletedTweets, loading, error] = useAxios([]);
   const {loginData} = useContext(AuthContext);
-  useEffect(()=>{
-    console.log("tweet",tweet)
-  },[])
 
-
-
- const deleteTweetSubmit=(data)=> {
-  console.log("data",data)
-  deleteTweets({endpoint: '/api/tweets', reqType:REQ_TYPES.POST,payload:data });
+  // useEffect(()=>{
+  //   console.log("tweet",tweet)
+  // },[])
+  
+ const deleteTweetSubmit= async (data)=> {
+  await deleteTweets({endpoint: '/api/tweets', reqType:REQ_TYPES.POST,payload:data });
   setDropDownUnique(false)
+  dispatch(setHomePageResetDecrease())
 };
 
 

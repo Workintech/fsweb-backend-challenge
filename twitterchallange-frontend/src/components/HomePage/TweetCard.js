@@ -1,17 +1,21 @@
 //Outsource JS library
-import React, { useEffect, useState,useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import moment from 'moment-timezone'
+import React, { useEffect, useState,useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment-timezone';
+import { useDispatch } from "react-redux";
 
 //Internal JS
 import useAxios, {REQ_TYPES} from '../../endpoints/UseAxios';
 import { AuthContext } from '../../context/AuthContext';
 import DropDownMenu from './DropDownMenu';
 import { DropDownContext } from '../../context/DropDownButton';
+import { setHomePageResetIncrease } from '../../store/actions/tweetAction';
+
 
 
 function TweetCard({tweet}) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {loginData} = useContext(AuthContext);
   const [like,setLike]=useState(false);
   const{dropDown,setDropDown}=useContext(DropDownContext);
@@ -28,14 +32,16 @@ function TweetCard({tweet}) {
   const [sendLikes] = useAxios([]);
   const [delLikes] = useAxios([]);
 
-  const tweetLikeSubmit = (data) => {
-    console.log("data for likes",data) 
+  const tweetLikeSubmit = async (data) => {
+   // console.log("data for likes",data) 
     if(!like){
-      sendLikes({endpoint:"/api/likes/like",reqType:REQ_TYPES.POST,payload:data})
+      await sendLikes({endpoint:"/api/likes/like",reqType:REQ_TYPES.POST,payload:data})
       setLike(true);
+      dispatch(setHomePageResetIncrease())
     }else if(like){
-      delLikes({endpoint:"/api/likes/likes",reqType:REQ_TYPES.POST,payload:data})
+      await delLikes({endpoint:"/api/likes/likes",reqType:REQ_TYPES.POST,payload:data})
       setLike(false);
+      dispatch(setHomePageResetIncrease())
     }
   }
 
