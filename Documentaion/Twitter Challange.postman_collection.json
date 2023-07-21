@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "3d0e42f4-006c-4d1a-aa55-7c7062fd3934",
+		"name": "Twitter Challange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27125636",
+		"_collection_link": "https://bold-equinox-344048.postman.co/workspace/Team-Workspace~7f227dc1-892d-448b-8685-e8b3b899fde2/collection/27125636-3d0e42f4-006c-4d1a-aa55-7c7062fd3934?action=share&creator=27125636&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Serkan\",\n    \"password\":\"12345678\",\n    \"userEmail\":\"s23er@hotmail.com\",\n    \"userName\":\"Student23213\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loginDataName\":\"FullStackDeveloper00001\",\n    \"password\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/users/1",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tweets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg1ODgxMSwiZXhwIjoxNjg5ODY5NjExfQ.sECmvKoVc0vbtjgX2SxI25FGFaec_2aRk2dFjqpX_js",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/tweets/mainpage",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"tweets",
+						"mainpage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Tweet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{        \n    \"user_id\" : 1,\n    \"tweet\" :\"backendden gonderim yapiyorum bakalim frontendde gözükecekmi?\",\n    \"parent_id\":12\n}       ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/tweets/newtweet",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"tweets",
+						"newtweet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TweetbyID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/tweets/4",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"tweets",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TweetsByUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/tweets/mainpage/Architect0001",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"tweets",
+						"mainpage",
+						"Architect0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TweetLikes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/likes/groups",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"likes",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TweetLike",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbkRhdGFOYW1lIjoiRnVsbFN0YWNrRGV2ZWxvcGVyMDAwMDEiLCJwYXNzd29yZCI6IiQyYSQwOCRiRktURWpPZUc0dVA1a3ZzRmtZOUVPd3ZCMC9DODcucUVCUlB1UHhScW9MMTUvNU9yWWFwcSIsImlhdCI6MTY4OTg2Mzc5NywiZXhwIjoxNjg5ODc0NTk3fQ.NEpWerNz8BEoIRAvqeEyc1NPV6JHnghGG6iRULgmRns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\":1,\n\"tweet_id\":4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://serkantoraman-twitterproject.onrender.com/api/likes/like",
+					"protocol": "https",
+					"host": [
+						"serkantoraman-twitterproject",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"likes",
+						"like"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -70,3 +70,20 @@ describe('REGISTER USER',()=>{
     expect(res.body).toHaveProperty('message','Please fillout all inputs');
   })
 })
+describe('LOGIN USER',()=>{
+   
+
+  test('[5] Login Passing User', async()=>{
+    //ARRANGE
+   const loginPassingUser={
+    password:'12345678',
+    loginDataName:'Student0001'
+  }
+    //ACT
+    const res = await request(server).post('/api/auth/login').send(loginPassingUser);
+    //ASSERT
+    expect(res.body).toHaveProperty('name','Musacan');
+
+  })
+  
+})

@@ -17,7 +17,7 @@ function RegisterUser() {
 const registerHandleSubmit=(data)=>{
   axios
   .post(
-    "http://localhost:9000/api/auth/register",data
+    "https://serkantoraman-twitterproject.onrender.com/api/auth/register",data
   )
   .then((res) => {
     console.log("Yeni urun kayıt res > ", res.data);  
