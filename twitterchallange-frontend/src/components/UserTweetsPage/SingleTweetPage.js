@@ -17,7 +17,7 @@ function SingleTweetPage() {
 
   useEffect(() => {
     getChildTweetsById({ endpoint: "/api/tweets/"+tweetid+'/c', reqType: REQ_TYPES.GET });
-    console.log('buttonsingke',button)
+    //console.log('buttonsingke',button)
   }, [button]);
  
 
