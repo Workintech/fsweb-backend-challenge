@@ -1,0 +1,7 @@
+
+#SingleTweetChildTweetsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  @import'homePages/tweetCard.scss';
+}

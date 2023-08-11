@@ -1,0 +1,38 @@
+
+     #homePageMainSection{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        overflow-y: auto;
+        #homePageMainSectionInputSection{
+          flex-grow: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1rem;
+          #homePageMainSectionInputWrapper{
+            position: relative;
+            #homePageMainSectionInput{
+              @include loginFormInputs;
+            }
+          #homePageMainSectionInputWrapperFaFa{
+            position: absolute;
+            top:1.5rem;
+            left:1rem;
+            color:$bordercolors;
+          }
+        }
+        
+      }
+      #homePageMainSectionDataSection{///////HomePageMainContainer
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+      }
+          @import 'sendTweet'
+      }

@@ -1,0 +1,37 @@
+{
+  "name": "sprint-16-twitter-challange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "test": "cross-env NODE_ENV=testing jest --verbose --watchAll --runInBand --silent"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "4.18.1",
+    "helmet": "5.0.2",
+    "jsonwebtoken": "^9.0.1",
+    "knex": "^2.4.2",
+    "sqlite3": "5.0.8"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "cross-env": "7.0.3",
+    "eslint": "8.14.0",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.20",
+    "supertest": "6.2.3"
+  }
+}
